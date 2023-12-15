@@ -6,21 +6,19 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.actions.*;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pimpedpixel.games.animation.AnimatedBody;
-import com.pimpedpixel.games.animation.WalkAnimationAction;
-import com.pimpedpixel.games.animation.WalkingDirection;
 import com.pimpedpixel.games.character.AnimatedCharacter;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import static com.pimpedpixel.games.animation.WalkingDirection.*;
+import static com.pimpedpixel.games.animation.WalkingDirection.DOWN;
 
 public class ShutTheWackUpGame extends ApplicationAdapter {
 	private SpriteBatch batch;

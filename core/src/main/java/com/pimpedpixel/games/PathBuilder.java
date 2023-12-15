@@ -1,4 +1,4 @@
-package com.pimpedpixel.shutthewackup;
+package com.pimpedpixel.games;
 
 import com.badlogic.gdx.Gdx;
 

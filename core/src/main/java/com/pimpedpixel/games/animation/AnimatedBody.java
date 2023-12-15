@@ -7,9 +7,8 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.pimpedpixel.shutthewackup.PathBuilder;
+import com.pimpedpixel.games.PathBuilder;
 
 import java.util.HashMap;
 import java.util.List;

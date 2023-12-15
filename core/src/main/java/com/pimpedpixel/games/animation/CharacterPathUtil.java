@@ -1,7 +1,6 @@
 package com.pimpedpixel.games.animation;
 
-
-import com.pimpedpixel.shutthewackup.PathBuilder;
+import com.pimpedpixel.games.PathBuilder;
 
 class CharacterPathUtil {
     public static PathBuilder initPathBuilder(String characterName) {
