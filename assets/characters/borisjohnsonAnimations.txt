@@ -1,158 +1,179 @@
 borisjohnsonAnimations.png
-size: 555, 555
+size: 1024, 512
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Linear,Linear
 repeat: none
 borisjohnson-hymn-1
   rotate: false
-  xy: 438, 1
+  xy: 0, 0
   size: 57, 158
   orig: 57, 158
   offset: 0, 0
   index: -1
+borisjohnson-lipsyncdown-1
+  rotate: false
+  xy: 57, 0
+  size: 57, 159
+  orig: 57, 159
+  offset: 0, 0
+  index: -1
 borisjohnson-walkdown-1
   rotate: false
-  xy: 317, 325
+  xy: 114, 0
   size: 57, 158
   orig: 57, 158
   offset: 0, 0
   index: -1
 borisjohnson-walkdown-2
   rotate: false
-  xy: 497, 1
+  xy: 171, 0
   size: 57, 158
   orig: 57, 158
   offset: 0, 0
   index: -1
 borisjohnson-walkdown-3
   rotate: false
-  xy: 376, 325
+  xy: 228, 0
   size: 57, 158
   orig: 57, 158
   offset: 0, 0
   index: -1
 borisjohnson-walkdown-4
   rotate: false
-  xy: 414, 163
+  xy: 285, 0
   size: 57, 158
   orig: 57, 158
   offset: 0, 0
   index: -1
 borisjohnson-walkdown-5
   rotate: false
-  xy: 473, 161
+  xy: 342, 0
   size: 57, 158
   orig: 57, 158
   offset: 0, 0
   index: -1
 borisjohnson-walkdown-6
   rotate: false
-  xy: 435, 323
+  xy: 399, 0
   size: 57, 158
   orig: 57, 158
   offset: 0, 0
   index: -1
 borisjohnson-walkdown-7
   rotate: false
-  xy: 494, 321
+  xy: 456, 0
+  size: 57, 158
+  orig: 57, 158
+  offset: 0, 0
+  index: -1
+borisjohnson-walkdownrest-1
+  rotate: false
+  xy: 513, 0
   size: 57, 158
   orig: 57, 158
   offset: 0, 0
   index: -1
 borisjohnson-walksideways-1
   rotate: false
-  xy: 1, 1
-  size: 95, 160
-  orig: 95, 160
-  offset: 0, 0
-  index: -1
-borisjohnson-walksideways-2
-  rotate: false
-  xy: 1, 163
+  xy: 570, 0
   size: 95, 160
   orig: 95, 160
   offset: 0, 0
   index: -1
 borisjohnson-walksideways-3
   rotate: false
-  xy: 98, 1
+  xy: 665, 0
   size: 95, 160
   orig: 95, 160
   offset: 0, 0
   index: -1
 borisjohnson-walksideways-4
   rotate: false
-  xy: 1, 325
+  xy: 760, 0
   size: 95, 160
   orig: 95, 160
   offset: 0, 0
   index: -1
 borisjohnson-walksideways-5
   rotate: false
-  xy: 98, 163
+  xy: 855, 0
   size: 95, 160
   orig: 95, 160
   offset: 0, 0
   index: -1
 borisjohnson-walksideways-6
   rotate: false
-  xy: 195, 1
+  xy: 0, 160
   size: 95, 160
   orig: 95, 160
   offset: 0, 0
   index: -1
+borisjohnson-walksidewaysrest-1
+  rotate: false
+  xy: 95, 160
+  size: 48, 150
+  orig: 48, 150
+  offset: 0, 0
+  index: -1
 borisjohnson-walkup-1
   rotate: false
-  xy: 98, 325
+  xy: 143, 160
   size: 71, 160
   orig: 71, 160
   offset: 0, 0
   index: -1
 borisjohnson-walkup-2
   rotate: false
-  xy: 195, 163
+  xy: 214, 160
   size: 71, 160
   orig: 71, 160
   offset: 0, 0
   index: -1
 borisjohnson-walkup-3
   rotate: false
-  xy: 292, 1
+  xy: 285, 160
   size: 71, 160
   orig: 71, 160
   offset: 0, 0
   index: -1
 borisjohnson-walkup-4
   rotate: false
-  xy: 171, 325
+  xy: 356, 160
   size: 71, 160
   orig: 71, 160
   offset: 0, 0
   index: -1
 borisjohnson-walkup-5
   rotate: false
-  xy: 268, 163
+  xy: 427, 160
   size: 71, 160
   orig: 71, 160
   offset: 0, 0
   index: -1
 borisjohnson-walkup-6
   rotate: false
-  xy: 365, 1
+  xy: 498, 160
   size: 71, 160
   orig: 71, 160
   offset: 0, 0
   index: -1
 borisjohnson-walkup-7
   rotate: false
-  xy: 244, 325
+  xy: 569, 160
   size: 71, 160
   orig: 71, 160
   offset: 0, 0
   index: -1
 borisjohnson-walkup-8
   rotate: false
-  xy: 341, 163
+  xy: 640, 160
+  size: 71, 160
+  orig: 71, 160
+  offset: 0, 0
+  index: -1
+borisjohnson-walkuprest-1
+  rotate: false
+  xy: 711, 160
   size: 71, 160
   orig: 71, 160
   offset: 0, 0

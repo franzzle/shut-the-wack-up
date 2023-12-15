@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.pimpedpixel.shutthewackup.PathBuilder;
 
@@ -32,32 +33,15 @@ public class AnimatedBody extends Actor {
             texture.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
         }
 
-        final List<Sprite> walkRightSprites = animationParser.initAnimation(characterName, "walksideways", characterAtlas);
-        final List<Sprite> walkLeftSprites = animationParser.initAnimation(characterName, "walksideways", characterAtlas);
+        final List<Sprite> walkDownRestSprites = animationParser.initAnimation(characterName, "walkdownrest", characterAtlas);
 
-        final List<Sprite> walkUpSprites = animationParser.initAnimation(characterName, "walkup", characterAtlas);
-        final List<Sprite> walkDownSprites = animationParser.initAnimation(characterName, "walkdown", characterAtlas);
 
         // Since there's only one row, we only get the first array
         final float frameDuration = 0.1f;
-        Animation<Sprite> heroWalkRightAnimation = new Animation<>(frameDuration, walkRightSprites.toArray(new Sprite[0]));
-        Animation<Sprite> heroWalkLeftAnimation = new Animation<>(frameDuration, walkLeftSprites.toArray(new Sprite[0]));
+        Animation heroWalkDownRestAnimation = new Animation<Sprite>(frameDuration, walkDownRestSprites.toArray(new Sprite[0]));
+        walkAnimsMap.put(WalkingDirection.DOWN.getType(), heroWalkDownRestAnimation);
 
-        Animation<Sprite> heroWalkUpAnimation = new Animation<>(frameDuration, walkUpSprites.toArray(new Sprite[0]));
-        Animation<Sprite> heroWalkDownAnimation = new Animation<>(frameDuration, walkDownSprites.toArray(new Sprite[0]));
-
-        // Set it to ping pong mode so our hero looks like he's walking
-//        heroWalkRightAnimation.setPlayMode(Animation.PlayMode.LOOP);
-//        heroWalkLeftAnimation.setPlayMode(Animation.PlayMode.LOOP);
-//        heroWalkDownAnimation.setPlayMode(Animation.PlayMode.LOOP);
-//        heroWalkUpAnimation.setPlayMode(Animation.PlayMode.LOOP_REVERSED);
-
-        walkAnimsMap.put(WalkingDirection.RIGHT.getType(), heroWalkRightAnimation);
-        walkAnimsMap.put(WalkingDirection.LEFT.getType(), heroWalkLeftAnimation);
-        walkAnimsMap.put(WalkingDirection.DOWN.getType(), heroWalkDownAnimation);
-        walkAnimsMap.put(WalkingDirection.UP.getType(), heroWalkUpAnimation);
-
-        currentWalkAnimation = heroWalkRightAnimation;
+        currentWalkAnimation = heroWalkDownRestAnimation;
 
         this.setName("body");
     }
