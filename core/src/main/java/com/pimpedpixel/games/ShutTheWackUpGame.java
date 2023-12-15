@@ -5,9 +5,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -18,6 +18,8 @@ import com.pimpedpixel.games.character.AnimatedCharacter;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.pimpedpixel.games.GameSettings.RESPAWN_INTERVAL;
+import static com.pimpedpixel.games.GameSettings.SPAWN_INTERVAL;
 import static com.pimpedpixel.games.animation.WalkingDirection.DOWN;
 
 public class ShutTheWackUpGame extends ApplicationAdapter {
@@ -34,32 +36,11 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 		background = new Texture("background.png");
         animatedCharactersMap = new HashMap<>();
 
-//		final int duration = 3;
-//		final MoveByAction moveToTheRightAction = new MoveByAction();
-//		moveToTheRightAction.setAmount(0.75f * Gdx.graphics.getWidth(), 0);
-//		moveToTheRightAction.setDuration(duration);
-//
-//		final MoveByAction moveDownAction = new MoveByAction();
-//		moveDownAction.setAmount(0, -0.5f * Gdx.graphics.getHeight());
-//		moveDownAction.setDuration(duration);
-//
-//		final MoveByAction moveLeftAction = new MoveByAction();
-//		moveLeftAction.setAmount(-0.75f * Gdx.graphics.getWidth(), 0);
-//		moveLeftAction.setDuration(duration);
-//
-//		final MoveByAction moveUpAction = new MoveByAction();
-//		moveUpAction.setAmount(0, 0.5f * Gdx.graphics.getHeight());
-//		moveUpAction.setDuration(duration);
-
-		final SequenceAction walkAroundTheRoom = new SequenceAction();
-
         AnimatedCharacter animatedCharacter= new AnimatedCharacter("borisjohnson");
         animatedCharacter.getAnimatedBody().animateHeroWalkingInDirection(DOWN);
         animatedCharactersMap.put("borisjohnson", animatedCharacter);
 
 // In your constructor or initialization method
-        final float spawnInterval = 5; // 20 seconds
-        final float respawnInterval = 2; // 10 seconds
 
         Timer.schedule(new Timer.Task() {
             @Override
@@ -68,9 +49,22 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
                 final AnimatedBody animatedBody = animatedCharacter.getAnimatedBody();
                 animatedBody.setActive(true);
 
+                SpawnPos spawnPos = spawnCharacter();
+
+                float columnSpacing = Gdx.graphics.getWidth() / (float)spawnPos.numberOfColumns; // Recalculate spacing
+                float characterX = spawnPos.column * columnSpacing;
+                float characterY = spawnPos.row * (Gdx.graphics.getHeight() / 3f); // 3 rows evenly spaced vertically
+
+                if(characterX > Gdx.graphics.getWidth()){
+                    System.out.println("Brr");
+                }
+
+                animatedCharacter.getAnimatedBody().setX(characterX);
+                animatedCharacter.getAnimatedBody().setY(characterY);
+
                 // Schedule the character to be removed after spawnInterval
                 animatedBody.addAction(Actions.sequence(
-                    Actions.delay(spawnInterval),
+                    Actions.delay(SPAWN_INTERVAL),
                     Actions.run(new Runnable() {
                         @Override
                         public void run() {
@@ -80,7 +74,7 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
                     })
                 ));
             }
-        }, 0, respawnInterval);
+        }, 0, RESPAWN_INTERVAL);
 
 
 		stage = new Stage();
@@ -90,11 +84,19 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 				new OrthographicCamera());
 		this.stage.setViewport(viewportLoading);
 
-		animatedCharacter.getAnimatedBody().setX(0.1f * Gdx.graphics.getWidth());
-		animatedCharacter.getAnimatedBody().setY(0.64f * Gdx.graphics.getHeight());
 
 		this.stage.addActor(animatedCharacter.getAnimatedBody());
 	}
+
+    private SpawnPos spawnCharacter() {
+        int row = MathUtils.random(0, 2); // 0, 1, or 2 for the three rows
+        int col = MathUtils.random(1, row == 1 ? 3 : 4);
+        SpawnPos spawnPos = new SpawnPos();
+        spawnPos.row = row;
+        spawnPos.column = col;
+        spawnPos.numberOfColumns = row == 1 ? 3 : 4;
+        return spawnPos;
+    }
 
 	@Override
 	public void render () {
