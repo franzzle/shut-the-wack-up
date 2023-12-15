@@ -47,11 +47,10 @@ public class AnimatedBody extends Actor {
         Animation<Sprite> heroWalkDownAnimation = new Animation<>(frameDuration, walkDownSprites.toArray(new Sprite[0]));
 
         // Set it to ping pong mode so our hero looks like he's walking
-        heroWalkRightAnimation.setPlayMode(Animation.PlayMode.LOOP);
-        heroWalkLeftAnimation.setPlayMode(Animation.PlayMode.LOOP);
-
-        heroWalkDownAnimation.setPlayMode(Animation.PlayMode.LOOP);
-        heroWalkUpAnimation.setPlayMode(Animation.PlayMode.LOOP_REVERSED);
+//        heroWalkRightAnimation.setPlayMode(Animation.PlayMode.LOOP);
+//        heroWalkLeftAnimation.setPlayMode(Animation.PlayMode.LOOP);
+//        heroWalkDownAnimation.setPlayMode(Animation.PlayMode.LOOP);
+//        heroWalkUpAnimation.setPlayMode(Animation.PlayMode.LOOP_REVERSED);
 
         walkAnimsMap.put(WalkingDirection.RIGHT.getType(), heroWalkRightAnimation);
         walkAnimsMap.put(WalkingDirection.LEFT.getType(), heroWalkLeftAnimation);

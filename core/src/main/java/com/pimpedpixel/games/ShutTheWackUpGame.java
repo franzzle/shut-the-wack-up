@@ -6,11 +6,9 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveByAction;
-import com.badlogic.gdx.scenes.scene2d.actions.RepeatAction;
-import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
+import com.badlogic.gdx.scenes.scene2d.actions.*;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pimpedpixel.games.animation.AnimatedBody;
@@ -18,13 +16,17 @@ import com.pimpedpixel.games.animation.WalkAnimationAction;
 import com.pimpedpixel.games.animation.WalkingDirection;
 import com.pimpedpixel.games.character.AnimatedCharacter;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import static com.pimpedpixel.games.animation.WalkingDirection.*;
 
 public class ShutTheWackUpGame extends ApplicationAdapter {
 	private SpriteBatch batch;
 	private Texture background;
 
-	private AnimatedCharacter animatedCharacter;
+	private Map<String, AnimatedCharacter> animatedCharactersMap;
 
 	private Stage stage;
 
@@ -32,39 +34,56 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		background = new Texture("background.png");
-		animatedCharacter = new AnimatedCharacter("borisjohnson");
-		animatedCharacter.getAnimatedBody().setActive(true);
+        animatedCharactersMap = new HashMap<>();
 
-		final int duration = 3;
-		final MoveByAction moveToTheRightAction = new MoveByAction();
-		moveToTheRightAction.setAmount(0.75f * Gdx.graphics.getWidth(), 0);
-		moveToTheRightAction.setDuration(duration);
-
-		final MoveByAction moveDownAction = new MoveByAction();
-		moveDownAction.setAmount(0, -0.5f * Gdx.graphics.getHeight());
-		moveDownAction.setDuration(duration);
-
-		final MoveByAction moveLeftAction = new MoveByAction();
-		moveLeftAction.setAmount(-0.75f * Gdx.graphics.getWidth(), 0);
-		moveLeftAction.setDuration(duration);
-
-		final MoveByAction moveUpAction = new MoveByAction();
-		moveUpAction.setAmount(0, 0.5f * Gdx.graphics.getHeight());
-		moveUpAction.setDuration(duration);
+//		final int duration = 3;
+//		final MoveByAction moveToTheRightAction = new MoveByAction();
+//		moveToTheRightAction.setAmount(0.75f * Gdx.graphics.getWidth(), 0);
+//		moveToTheRightAction.setDuration(duration);
+//
+//		final MoveByAction moveDownAction = new MoveByAction();
+//		moveDownAction.setAmount(0, -0.5f * Gdx.graphics.getHeight());
+//		moveDownAction.setDuration(duration);
+//
+//		final MoveByAction moveLeftAction = new MoveByAction();
+//		moveLeftAction.setAmount(-0.75f * Gdx.graphics.getWidth(), 0);
+//		moveLeftAction.setDuration(duration);
+//
+//		final MoveByAction moveUpAction = new MoveByAction();
+//		moveUpAction.setAmount(0, 0.5f * Gdx.graphics.getHeight());
+//		moveUpAction.setDuration(duration);
 
 		final SequenceAction walkAroundTheRoom = new SequenceAction();
-		final AnimatedBody animatedBody = animatedCharacter.getAnimatedBody();
-		walkAroundTheRoom.addAction(moveToTheRightAction);
-		walkAroundTheRoom.addAction(WalkAnimationAction.create(animatedBody, WalkingDirection.DOWN));
-		walkAroundTheRoom.addAction(moveDownAction);
-		walkAroundTheRoom.addAction(WalkAnimationAction.create(animatedBody, LEFT));
-		walkAroundTheRoom.addAction(moveLeftAction);
-		walkAroundTheRoom.addAction(WalkAnimationAction.create(animatedBody, UP));
-		walkAroundTheRoom.addAction(moveUpAction);
-		walkAroundTheRoom.addAction(WalkAnimationAction.create(animatedBody, RIGHT));
 
-		final RepeatAction forever = Actions.forever(walkAroundTheRoom);
-		animatedCharacter.getAnimatedBody().addAction(forever);
+        AnimatedCharacter animatedCharacter= new AnimatedCharacter("borisjohnson");
+        animatedCharacter.getAnimatedBody().animateHeroWalkingInDirection(DOWN);
+        animatedCharactersMap.put("borisjohnson", animatedCharacter);
+
+// In your constructor or initialization method
+        final float spawnInterval = 5; // 20 seconds
+        final float respawnInterval = 2; // 10 seconds
+
+        Timer.schedule(new Timer.Task() {
+            @Override
+            public void run() {
+                final AnimatedCharacter animatedCharacter = animatedCharactersMap.get("borisjohnson");
+                final AnimatedBody animatedBody = animatedCharacter.getAnimatedBody();
+                animatedBody.setActive(true);
+
+                // Schedule the character to be removed after spawnInterval
+                animatedBody.addAction(Actions.sequence(
+                    Actions.delay(spawnInterval),
+                    Actions.run(new Runnable() {
+                        @Override
+                        public void run() {
+                            // Code to remove the character
+                            animatedBody.setActive(false);
+                        }
+                    })
+                ));
+            }
+        }, 0, respawnInterval);
+
 
 		stage = new Stage();
 		final Viewport viewportLoading = new FitViewport(
@@ -86,10 +105,12 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 		batch.draw(background, 0, 0);
 		batch.end();
 
-		animatedCharacter.getAnimatedBody().act(Gdx.graphics.getDeltaTime());
-		stage.getBatch().begin();
-		animatedCharacter.getAnimatedBody().draw(stage.getBatch(), 1.0f);
-		stage.getBatch().end();
+        for(AnimatedCharacter animatedCharacter : animatedCharactersMap.values()){
+            animatedCharacter.getAnimatedBody().act(Gdx.graphics.getDeltaTime());
+            stage.getBatch().begin();
+            animatedCharacter.getAnimatedBody().draw(stage.getBatch(), 1.0f);
+            stage.getBatch().end();
+        }
 	}
 
 	@Override
