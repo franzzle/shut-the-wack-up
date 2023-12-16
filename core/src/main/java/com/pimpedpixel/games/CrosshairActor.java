@@ -1,44 +1,41 @@
 package com.pimpedpixel.games;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Disposable;
 
 public class CrosshairActor extends Actor implements Disposable {
-    private float width;
-    private float height;
-    private Color color;
+    private Sprite sprite;
 
-    private TextureRegion blankTextureRegion;
 
-    public CrosshairActor(float width, float height) {
-        this.width = width;
-        this.height = height;
-        this.color = Color.RED;
+    public CrosshairActor() {
+        Texture texture = new Texture(Gdx.files.internal("hud/crosshair.png"));
+        sprite = new Sprite(texture);
+        setSize(sprite.getWidth(), sprite.getHeight());
+        this.setPosition(Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.5f);
+    }
 
-        Pixmap pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
-        pixmap.setColor(Color.RED);
-        pixmap.fill();
+    @Override
+    public void act(float delta) {
+        super.act(delta);
 
-        blankTextureRegion = new TextureRegion(new Texture(pixmap));
-        pixmap.dispose();
+        sprite.setPosition(this.getX(), this.getY());
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        batch.setColor(color);
-        batch.draw(blankTextureRegion, getX(), getY() + (height / 2), getWidth(), 1);
-        batch.draw(blankTextureRegion, getX() + (width / 2), getY(), 1, getHeight());
-        batch.setColor(Color.RED);
+        sprite.draw(batch);
     }
 
     @Override
     public void dispose() {
-        blankTextureRegion.getTexture().dispose();
+
+
     }
 }
 
