@@ -17,7 +17,7 @@ public class GameInput implements InputProcessor {
     public boolean downKeyPressed;
     public boolean leftKeyPressed;
     public boolean rightKeyPressed;
-
+    public boolean cursorMovementAllowed = true;
     private float spaceKeyPressedTime = 0f;
 
     public GameInput(CrosshairActor crosshairActor,
@@ -29,29 +29,13 @@ public class GameInput implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         if (keycode == Input.Keys.SPACE) {
+            cursorMovementAllowed = false;
             spaceKeyPressedTime = 0f;
-
-            // Calculate the distance between BigFootActor and crosshairActor
             bigFootActor.reset();
-            // Create a MoveToAction and set its target position and duration
-            MoveToAction moveToAction = new MoveToAction();
-            moveToAction.setPosition(
-                crosshairActor.getX() - crosshairActor.getWidth() * 0.5f,
-                crosshairActor.getY() - crosshairActor.getHeight() * 0.5f);
-            moveToAction.setDuration(0.2f);
-
-            SequenceAction sequenceAction = new SequenceAction(moveToAction, new RunnableAction() {
-                @Override
-                public void run() {
-                    Sound sound = AssetManagerHolder.assetManager.get("sounds/splat.wav", Sound.class);
-                    sound.play();
-                }
-            });
-            // Add the action to the BigFootActor
-            bigFootActor.addAction(sequenceAction);
-
+            bigFootActor.addAction(getSequenceAction());
             return true;
         }
+
         if (keycode == Input.Keys.W) {
             upKeyPressed = true;
             return true;
@@ -68,7 +52,27 @@ public class GameInput implements InputProcessor {
             rightKeyPressed = true;
             return true;
         }
+
         return false;
+    }
+
+    private SequenceAction getSequenceAction() {
+        MoveToAction moveToAction = new MoveToAction();
+        moveToAction.setPosition(
+            crosshairActor.getX() - crosshairActor.getWidth() * 0.5f,
+            crosshairActor.getY() - crosshairActor.getHeight() * 0.5f);
+        moveToAction.setDuration(0.2f);
+
+        SequenceAction sequenceAction = new SequenceAction(
+            moveToAction,
+            new RunnableAction() {
+            @Override
+            public void run() {
+                Sound sound = AssetManagerHolder.assetManager.get("sounds/splat.wav", Sound.class);
+                sound.play();
+            }
+        });
+        return sequenceAction;
     }
 
     @Override

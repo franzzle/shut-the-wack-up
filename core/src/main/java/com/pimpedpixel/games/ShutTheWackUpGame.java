@@ -2,6 +2,7 @@ package com.pimpedpixel.games;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -44,6 +45,10 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
         AnimatedCharacter animatedCharacter= new AnimatedCharacter("borisjohnson");
         animatedCharacter.getAnimatedBody().animateHeroWalkingInDirection(DOWN);
         animatedCharactersMap.put("borisjohnson", animatedCharacter);
+
+        Music music = AssetManagerHolder.assetManager.get("music/libertyBellMarch.ogg", Music.class);
+        music.setVolume(0.05f);
+        music.play();
 
         Timer.schedule(new Timer.Task() {
             @Override
