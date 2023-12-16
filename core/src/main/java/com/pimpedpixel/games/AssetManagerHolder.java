@@ -8,6 +8,8 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.pimpedpixel.games.animation.lipsync.LipsyncSequence;
+import com.pimpedpixel.games.animation.lipsync.LipsyncSequenceAssetLoader;
 
 
 public class AssetManagerHolder {
@@ -20,6 +22,8 @@ public class AssetManagerHolder {
 
         assetManager.load(new FileHandle("music/libertyBellMarch.ogg").path(), Music.class);
         assetManager.load(new FileHandle("sounds/splat.wav").path(), Sound.class);
+
+        assetManager.setLoader(LipsyncSequence.class, new LipsyncSequenceAssetLoader(new InternalFileHandleResolver()));
 
 
         final String fontFile = "fonts/baskic28.fnt";

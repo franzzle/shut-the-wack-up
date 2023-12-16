@@ -32,14 +32,12 @@ public class AnimatedBody extends Actor {
             texture.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
         }
 
-        final List<Sprite> walkDownRestSprites = animationParser.initAnimation(characterName, "walkdownrest", characterAtlas);
-
+        final List<Sprite> lipsyncDownSprites = animationParser.initAnimation(characterName, "lipsyncdown", characterAtlas);
 
         // Since there's only one row, we only get the first array
         final float frameDuration = 0.1f;
-        Animation heroWalkDownRestAnimation = new Animation<Sprite>(frameDuration, walkDownRestSprites.toArray(new Sprite[0]));
+        Animation heroWalkDownRestAnimation = new Animation<>(frameDuration, lipsyncDownSprites.toArray(new Sprite[0]));
         walkAnimsMap.put(WalkingDirection.DOWN.getType(), heroWalkDownRestAnimation);
-
         currentWalkAnimation = heroWalkDownRestAnimation;
 
         this.setName("body");

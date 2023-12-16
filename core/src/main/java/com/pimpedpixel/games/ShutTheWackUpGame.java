@@ -12,7 +12,9 @@ import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pimpedpixel.games.animation.AnimatedBody;
-import com.pimpedpixel.games.character.AnimatedCharacter;
+import com.pimpedpixel.games.animation.AnimatedCharacter;
+import com.pimpedpixel.games.animation.lipsync.VoicedCharacter;
+import com.pimpedpixel.games.animation.lipsync.VoicedCharacterParser;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,11 +26,8 @@ import static com.pimpedpixel.games.animation.WalkingDirection.DOWN;
 public class ShutTheWackUpGame extends ApplicationAdapter {
 	private SpriteBatch batch;
 	private Texture background;
-
 	private Map<String, AnimatedCharacter> animatedCharactersMap;
-
 	private Stage stage;
-
     private GameInput gameInput;
 
 	@Override
@@ -38,6 +37,9 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
         background = AssetManagerHolder.assetManager.get("background.png");
         animatedCharactersMap = new HashMap<>();
 
+        Map<String, VoicedCharacter> stringVoicedCharacterMap =
+            VoicedCharacterParser.parseByFile("lines.json");
+        System.out.println(stringVoicedCharacterMap);
 
         AnimatedCharacter animatedCharacter= new AnimatedCharacter("borisjohnson");
         animatedCharacter.getAnimatedBody().animateHeroWalkingInDirection(DOWN);

@@ -1,7 +1,5 @@
-package com.pimpedpixel.games.character;
+package com.pimpedpixel.games.animation;
 
-
-import com.pimpedpixel.games.animation.AnimatedBody;
 
 public class AnimatedCharacter {
     private final String characterName;

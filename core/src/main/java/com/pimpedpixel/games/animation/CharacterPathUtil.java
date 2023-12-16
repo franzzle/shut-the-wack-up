@@ -2,7 +2,7 @@ package com.pimpedpixel.games.animation;
 
 import com.pimpedpixel.games.PathBuilder;
 
-class CharacterPathUtil {
+public class CharacterPathUtil {
     public static PathBuilder initPathBuilder(String characterName) {
         PathBuilder pathBuilder = new PathBuilder();
 
