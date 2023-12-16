@@ -3,7 +3,10 @@ package com.pimpedpixel.games;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
+import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
+import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 
 import static com.pimpedpixel.games.GameSettings.CROSSHAIR_DISPLACEMENT_UNIT;
 
@@ -37,8 +40,15 @@ public class GameInput implements InputProcessor {
                 crosshairActor.getY() - crosshairActor.getHeight() * 0.5f);
             moveToAction.setDuration(0.2f);
 
+            SequenceAction sequenceAction = new SequenceAction(moveToAction, new RunnableAction() {
+                @Override
+                public void run() {
+                    Sound sound = AssetManagerHolder.assetManager.get("sounds/splat.wav", Sound.class);
+                    sound.play();
+                }
+            });
             // Add the action to the BigFootActor
-            bigFootActor.addAction(moveToAction);
+            bigFootActor.addAction(sequenceAction);
 
             return true;
         }
