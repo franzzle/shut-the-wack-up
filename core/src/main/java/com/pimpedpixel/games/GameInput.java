@@ -1,6 +1,5 @@
 package com.pimpedpixel.games;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 
@@ -20,21 +19,22 @@ public class GameInput implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         if (keycode == Input.Keys.SPACE) {
+            //TODO
             return true;
         }
-        if (keycode == Input.Keys.UP) {
+        if (keycode == Input.Keys.W) {
             upKeyPressed = true;
             return true;
         }
-        if (keycode == Input.Keys.DOWN) {
+        if (keycode == Input.Keys.S) {
             downKeyPressed = true;
             return true;
         }
-        if (keycode == Input.Keys.LEFT) {
+        if (keycode == Input.Keys.A) {
             leftKeyPressed = true;
             return true;
         }
-        if (keycode == Input.Keys.RIGHT) {
+        if (keycode == Input.Keys.D) {
             rightKeyPressed = true;
             return true;
         }
