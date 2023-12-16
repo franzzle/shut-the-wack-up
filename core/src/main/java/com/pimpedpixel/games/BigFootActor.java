@@ -14,7 +14,10 @@ public class BigFootActor extends Actor implements Disposable {
         Texture texture = AssetManagerHolder.assetManager.get("bigfoot.png");
         sprite = new Sprite(texture);
         setSize(sprite.getWidth(), sprite.getHeight());
-        this.setPosition(Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.5f);
+    }
+
+    public void reset(){
+        this.setPosition(Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight()  + sprite.getHeight());
     }
 
     @Override
@@ -27,6 +30,12 @@ public class BigFootActor extends Actor implements Disposable {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         sprite.draw(batch);
+    }
+
+    public float distanceTo(Actor otherActor) {
+        float dx = getX() - otherActor.getX();
+        float dy = getY() - otherActor.getY();
+        return (float) Math.sqrt(dx * dx + dy * dy);
     }
 
     @Override

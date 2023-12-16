@@ -82,11 +82,12 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 		final Viewport viewportLoading = new ScreenViewport();
 		this.stage.setViewport(viewportLoading);
 		this.stage.addActor(animatedCharacter.getAnimatedBody());
-        CrosshairActor crosshairActor = new CrosshairActor();
 
-        this.stage.addActor(new BigFootActor());
+        final CrosshairActor crosshairActor = new CrosshairActor();
+        final BigFootActor bigFootActor = new BigFootActor();
+        this.stage.addActor(bigFootActor);
         this.stage.addActor(crosshairActor);
-        this.gameInput = new GameInput(crosshairActor);
+        this.gameInput = new GameInput(crosshairActor, bigFootActor);
         Gdx.input.setInputProcessor(this.gameInput);
 	}
 

@@ -3,24 +3,37 @@ package com.pimpedpixel.games;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 
 import static com.pimpedpixel.games.GameSettings.CROSSHAIR_DISPLACEMENT_UNIT;
 
 public class GameInput implements InputProcessor {
     private final CrosshairActor crosshairActor;
+    private final BigFootActor bigFootActor;
     public boolean upKeyPressed;
     public boolean downKeyPressed;
     public boolean leftKeyPressed;
     public boolean rightKeyPressed;
 
-    public GameInput(CrosshairActor crosshairActor){
+    public GameInput(CrosshairActor crosshairActor,
+                     BigFootActor bigFootActor){
         this.crosshairActor = crosshairActor;
+        this.bigFootActor = bigFootActor;
     }
 
     @Override
     public boolean keyDown(int keycode) {
         if (keycode == Input.Keys.SPACE) {
-            //TODO
+            // Calculate the distance between BigFootActor and crosshairActor
+            bigFootActor.reset();
+            // Create a MoveToAction and set its target position and duration
+            MoveToAction moveToAction = new MoveToAction();
+            moveToAction.setPosition(crosshairActor.getX(), crosshairActor.getY());
+            moveToAction.setDuration(0.2f);
+
+            // Add the action to the BigFootActor
+            bigFootActor.addAction(moveToAction);
+
             return true;
         }
         if (keycode == Input.Keys.W) {
@@ -64,6 +77,8 @@ public class GameInput implements InputProcessor {
     public void updatePosition() {
         float newX = this.crosshairActor.getX();
         float newY = this.crosshairActor.getY();
+
+        bigFootActor.setPosition(newX, bigFootActor.getY());
 
         if (upKeyPressed) {
             newY += CROSSHAIR_DISPLACEMENT_UNIT;
