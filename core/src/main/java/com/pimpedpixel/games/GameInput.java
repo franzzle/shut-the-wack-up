@@ -1,5 +1,6 @@
 package com.pimpedpixel.games;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 
@@ -44,41 +45,46 @@ public class GameInput implements InputProcessor {
     @Override
     public boolean keyUp(int keycode) {
         switch (keycode){
-            case Input.Keys.UP :
+            case Input.Keys.W :
                 upKeyPressed = false;
                 break;
-            case Input.Keys.DOWN :
+            case Input.Keys.S :
                 downKeyPressed = false;
                 break;
-            case Input.Keys.LEFT:
+            case Input.Keys.A:
                 leftKeyPressed = false;
                 break;
-            case Input.Keys.RIGHT:
+            case Input.Keys.D:
                 rightKeyPressed = false;
                 break;
         }
         return false;
     }
 
-    public void updatePosition(){
-        if(upKeyPressed){
-            this.crosshairActor.setPosition(this.crosshairActor.getX(),
-                this.crosshairActor.getY() + CROSSHAIR_DISPLACEMENT_UNIT);
+    public void updatePosition() {
+        float newX = this.crosshairActor.getX();
+        float newY = this.crosshairActor.getY();
+
+        if (upKeyPressed) {
+            newY += CROSSHAIR_DISPLACEMENT_UNIT;
         }
-        if(downKeyPressed){
-            this.crosshairActor.setPosition(this.crosshairActor.getX(),
-                this.crosshairActor.getY() - CROSSHAIR_DISPLACEMENT_UNIT);
+        if (downKeyPressed) {
+            newY -= CROSSHAIR_DISPLACEMENT_UNIT;
         }
-        if(leftKeyPressed){
-            this.crosshairActor.setPosition(this.crosshairActor.getX() - CROSSHAIR_DISPLACEMENT_UNIT,
-                crosshairActor.getY());
+        if (leftKeyPressed) {
+            newX -= CROSSHAIR_DISPLACEMENT_UNIT;
         }
-        if(rightKeyPressed){
-            this.crosshairActor.setPosition(this.crosshairActor.getX() + CROSSHAIR_DISPLACEMENT_UNIT,
-                crosshairActor.getY());
+        if (rightKeyPressed) {
+            newX += CROSSHAIR_DISPLACEMENT_UNIT;
         }
 
+        // Ensure the new position stays within the bounds
+        newX = Math.max(0, Math.min(newX, Gdx.graphics.getWidth() - crosshairActor.getWidth()));
+        newY = Math.max(0, Math.min(newY, Gdx.graphics.getHeight() - crosshairActor.getHeight()));
+
+        this.crosshairActor.setPosition(newX, newY);
     }
+
 
     @Override
     public boolean keyTyped(char character) {

@@ -34,14 +34,14 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		background = new Texture("background.png");
+        AssetManagerHolder.load();
+        background = AssetManagerHolder.assetManager.get("background.png");
         animatedCharactersMap = new HashMap<>();
+
 
         AnimatedCharacter animatedCharacter= new AnimatedCharacter("borisjohnson");
         animatedCharacter.getAnimatedBody().animateHeroWalkingInDirection(DOWN);
         animatedCharactersMap.put("borisjohnson", animatedCharacter);
-
-
 
         Timer.schedule(new Timer.Task() {
             @Override
@@ -63,8 +63,6 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
                 animatedCharacter.getAnimatedBody().setX(characterX);
                 animatedCharacter.getAnimatedBody().setY(characterY);
 
-
-
                 // Schedule the character to be removed after spawnInterval
                 animatedBody.addAction(Actions.sequence(
                     Actions.delay(SPAWN_INTERVAL),
@@ -81,11 +79,10 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 		stage = new Stage();
 		final Viewport viewportLoading = new ScreenViewport();
 		this.stage.setViewport(viewportLoading);
-
-
 		this.stage.addActor(animatedCharacter.getAnimatedBody());
         CrosshairActor crosshairActor = new CrosshairActor();
 
+        this.stage.addActor(new BigFootActor());
         this.stage.addActor(crosshairActor);
         this.gameInput = new GameInput(crosshairActor);
         Gdx.input.setInputProcessor(this.gameInput);
