@@ -15,6 +15,8 @@ public class GameInput implements InputProcessor {
     public boolean leftKeyPressed;
     public boolean rightKeyPressed;
 
+    private float spaceKeyPressedTime = 0f;
+
     public GameInput(CrosshairActor crosshairActor,
                      BigFootActor bigFootActor){
         this.crosshairActor = crosshairActor;
@@ -24,11 +26,15 @@ public class GameInput implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         if (keycode == Input.Keys.SPACE) {
+            spaceKeyPressedTime = 0f;
+
             // Calculate the distance between BigFootActor and crosshairActor
             bigFootActor.reset();
             // Create a MoveToAction and set its target position and duration
             MoveToAction moveToAction = new MoveToAction();
-            moveToAction.setPosition(crosshairActor.getX(), crosshairActor.getY());
+            moveToAction.setPosition(
+                crosshairActor.getX() - crosshairActor.getWidth() * 0.5f,
+                crosshairActor.getY() - crosshairActor.getHeight() * 0.5f);
             moveToAction.setDuration(0.2f);
 
             // Add the action to the BigFootActor
@@ -75,10 +81,13 @@ public class GameInput implements InputProcessor {
     }
 
     public void updatePosition() {
+        spaceKeyPressedTime += Gdx.graphics.getDeltaTime();
         float newX = this.crosshairActor.getX();
         float newY = this.crosshairActor.getY();
 
-        bigFootActor.setPosition(newX, bigFootActor.getY());
+        bigFootActor.setPosition(newX - crosshairActor.getWidth() * 0.5f,
+            bigFootActor.getY()
+        );
 
         if (upKeyPressed) {
             newY += CROSSHAIR_DISPLACEMENT_UNIT;
@@ -91,6 +100,9 @@ public class GameInput implements InputProcessor {
         }
         if (rightKeyPressed) {
             newX += CROSSHAIR_DISPLACEMENT_UNIT;
+        }
+        if (spaceKeyPressedTime >= 1.0f) {
+            bigFootActor.reset();
         }
 
         // Ensure the new position stays within the bounds

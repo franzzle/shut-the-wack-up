@@ -17,7 +17,9 @@ public class BigFootActor extends Actor implements Disposable {
     }
 
     public void reset(){
-        this.setPosition(Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight()  + sprite.getHeight());
+        this.setPosition(
+            Gdx.graphics.getWidth() * 0.5f,
+            Gdx.graphics.getHeight()  + sprite.getHeight());
     }
 
     @Override
