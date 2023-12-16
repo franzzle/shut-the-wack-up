@@ -99,9 +99,7 @@ public class GameInput implements InputProcessor {
         float newX = this.crosshairActor.getX();
         float newY = this.crosshairActor.getY();
 
-        bigFootActor.setPosition(newX - crosshairActor.getWidth() * 0.5f,
-            bigFootActor.getY()
-        );
+        bigFootActor.setPosition(newX - crosshairActor.getWidth() * 0.5f, bigFootActor.getY());
 
         if (upKeyPressed) {
             newY += CROSSHAIR_DISPLACEMENT_UNIT;
@@ -109,14 +107,18 @@ public class GameInput implements InputProcessor {
         if (downKeyPressed) {
             newY -= CROSSHAIR_DISPLACEMENT_UNIT;
         }
+
+        // Check if cursor movement is allowed in the X direction
         if (leftKeyPressed) {
             newX -= CROSSHAIR_DISPLACEMENT_UNIT;
         }
         if (rightKeyPressed) {
             newX += CROSSHAIR_DISPLACEMENT_UNIT;
         }
+
         if (spaceKeyPressedTime >= 1.0f) {
             bigFootActor.reset();
+            cursorMovementAllowed = true;
         }
 
         // Ensure the new position stays within the bounds
