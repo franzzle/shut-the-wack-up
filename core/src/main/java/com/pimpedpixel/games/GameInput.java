@@ -99,7 +99,9 @@ public class GameInput implements InputProcessor {
         float newX = this.crosshairActor.getX();
         float newY = this.crosshairActor.getY();
 
-        bigFootActor.setPosition(newX - crosshairActor.getWidth() * 0.5f, bigFootActor.getY());
+        if(cursorMovementAllowed){
+            bigFootActor.setPosition(newX - crosshairActor.getWidth() * 0.5f, bigFootActor.getY());
+        }
 
         if (upKeyPressed) {
             newY += CROSSHAIR_DISPLACEMENT_UNIT;
