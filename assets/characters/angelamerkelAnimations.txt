@@ -1,0 +1,54 @@
+angelamerkelAnimations.png
+size: 1024, 512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+angelamerkel-lipsyncdown-1
+  rotate: false
+  xy: 0, 0
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-walkdown-1
+  rotate: false
+  xy: 130, 0
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-walkdownrest-1
+  rotate: false
+  xy: 260, 0
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-walksideways-1
+  rotate: false
+  xy: 390, 0
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-walksidewaysrest-1
+  rotate: false
+  xy: 520, 0
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-walkup-1
+  rotate: false
+  xy: 650, 0
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-walkuprest-1
+  rotate: false
+  xy: 780, 0
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1

@@ -2,15 +2,19 @@ package com.pimpedpixel.games;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.SizeToAction;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pimpedpixel.games.animation.AnimatedBody;
 import com.pimpedpixel.games.character.AnimatedCharacter;
@@ -40,7 +44,7 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
         animatedCharacter.getAnimatedBody().animateHeroWalkingInDirection(DOWN);
         animatedCharactersMap.put("borisjohnson", animatedCharacter);
 
-// In your constructor or initialization method
+        Gdx.input.setInputProcessor(new GameInput());
 
         Timer.schedule(new Timer.Task() {
             @Override
@@ -62,30 +66,30 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
                 animatedCharacter.getAnimatedBody().setX(characterX);
                 animatedCharacter.getAnimatedBody().setY(characterY);
 
+
+
                 // Schedule the character to be removed after spawnInterval
                 animatedBody.addAction(Actions.sequence(
                     Actions.delay(SPAWN_INTERVAL),
-                    Actions.run(new Runnable() {
-                        @Override
-                        public void run() {
-                            // Code to remove the character
-                            animatedBody.setActive(false);
-                        }
-                    })
+                    Actions.run(() -> {
+                        // Code to remove the character
+                        animatedBody.setActive(false);
+                    }
+                        )
                 ));
             }
         }, 0, RESPAWN_INTERVAL);
 
 
 		stage = new Stage();
-		final Viewport viewportLoading = new FitViewport(
-				Gdx.graphics.getWidth(),
-				Gdx.graphics.getHeight(),
-				new OrthographicCamera());
+		final Viewport viewportLoading = new ScreenViewport();
 		this.stage.setViewport(viewportLoading);
 
 
 		this.stage.addActor(animatedCharacter.getAnimatedBody());
+        CrosshairActor crosshairActor = new CrosshairActor(Gdx.graphics.getWidth() * 0.1f, Gdx.graphics.getHeight() * 0.075f);
+        crosshairActor.setPosition(300,400);
+        this.stage.addActor(crosshairActor);
 	}
 
     private SpawnPos spawnCharacter() {
@@ -101,16 +105,13 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 	@Override
 	public void render () {
 		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(background, 0, 0);
-		batch.end();
+        stage.act();
 
-        for(AnimatedCharacter animatedCharacter : animatedCharactersMap.values()){
-            animatedCharacter.getAnimatedBody().act(Gdx.graphics.getDeltaTime());
-            stage.getBatch().begin();
-            animatedCharacter.getAnimatedBody().draw(stage.getBatch(), 1.0f);
-            stage.getBatch().end();
-        }
+        batch.begin();
+        batch.draw(background, 0, 0);
+        batch.end();
+
+        stage.draw();
 	}
 
 	@Override
@@ -118,4 +119,9 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 		batch.dispose();
 		background.dispose();
 	}
+
+    public void resize (int width, int height) {
+        // See below for what true means.
+        stage.getViewport().update(width, height, true);
+    }
 }

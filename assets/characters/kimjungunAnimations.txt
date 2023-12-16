@@ -1,0 +1,54 @@
+kimjungunAnimations.png
+size: 784, 280
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kimjungun-lipsyncdown-1
+  rotate: false
+  xy: 673, 1
+  size: 110, 238
+  orig: 134, 310
+  offset: 9, 5
+  index: -1
+kimjungun-walkdown-1
+  rotate: false
+  xy: 1, 1
+  size: 110, 278
+  orig: 134, 310
+  offset: 9, 5
+  index: -1
+kimjungun-walkdownrest-1
+  rotate: false
+  xy: 113, 1
+  size: 110, 278
+  orig: 134, 310
+  offset: 9, 5
+  index: -1
+kimjungun-walksideways-1
+  rotate: false
+  xy: 225, 1
+  size: 110, 278
+  orig: 134, 310
+  offset: 9, 5
+  index: -1
+kimjungun-walksidewaysrest-1
+  rotate: false
+  xy: 337, 1
+  size: 110, 278
+  orig: 134, 310
+  offset: 9, 5
+  index: -1
+kimjungun-walkup-1
+  rotate: false
+  xy: 449, 1
+  size: 110, 278
+  orig: 134, 310
+  offset: 9, 5
+  index: -1
+kimjungun-walkuprest-1
+  rotate: false
+  xy: 561, 1
+  size: 110, 278
+  orig: 134, 310
+  offset: 9, 5
+  index: -1

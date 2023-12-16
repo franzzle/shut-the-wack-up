@@ -1,0 +1,68 @@
+kimjungunLipSyncAnimations.png
+size: 408, 936
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kimjungun-lipsync-down-A
+  rotate: false
+  xy: 1, 1
+  size: 134, 310
+  orig: 134, 310
+  offset: 0, 0
+  index: -1
+kimjungun-lipsync-down-B
+  rotate: false
+  xy: 137, 1
+  size: 134, 310
+  orig: 134, 310
+  offset: 0, 0
+  index: -1
+kimjungun-lipsync-down-C
+  rotate: false
+  xy: 273, 1
+  size: 134, 310
+  orig: 134, 310
+  offset: 0, 0
+  index: -1
+kimjungun-lipsync-down-D
+  rotate: false
+  xy: 1, 313
+  size: 134, 310
+  orig: 134, 310
+  offset: 0, 0
+  index: -1
+kimjungun-lipsync-down-E
+  rotate: false
+  xy: 1, 625
+  size: 134, 310
+  orig: 134, 310
+  offset: 0, 0
+  index: -1
+kimjungun-lipsync-down-F
+  rotate: false
+  xy: 137, 313
+  size: 134, 310
+  orig: 134, 310
+  offset: 0, 0
+  index: -1
+kimjungun-lipsync-down-G
+  rotate: false
+  xy: 137, 625
+  size: 134, 310
+  orig: 134, 310
+  offset: 0, 0
+  index: -1
+kimjungun-lipsync-down-H
+  rotate: false
+  xy: 273, 313
+  size: 134, 310
+  orig: 134, 310
+  offset: 0, 0
+  index: -1
+kimjungun-lipsync-down-X
+  rotate: false
+  xy: 273, 625
+  size: 134, 310
+  orig: 134, 310
+  offset: 0, 0
+  index: -1

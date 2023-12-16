@@ -1,0 +1,68 @@
+angelamerkelLipSyncAnimations.png
+size: 396, 936
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+angelamerkel-lipsync-down-A
+  rotate: false
+  xy: 1, 1
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-lipsync-down-B
+  rotate: false
+  xy: 133, 1
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-lipsync-down-C
+  rotate: false
+  xy: 265, 1
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-lipsync-down-D
+  rotate: false
+  xy: 1, 313
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-lipsync-down-E
+  rotate: false
+  xy: 1, 625
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-lipsync-down-F
+  rotate: false
+  xy: 133, 313
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-lipsync-down-G
+  rotate: false
+  xy: 133, 625
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-lipsync-down-H
+  rotate: false
+  xy: 265, 313
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
+angelamerkel-lipsync-down-X
+  rotate: false
+  xy: 265, 625
+  size: 130, 310
+  orig: 130, 310
+  offset: 0, 0
+  index: -1
