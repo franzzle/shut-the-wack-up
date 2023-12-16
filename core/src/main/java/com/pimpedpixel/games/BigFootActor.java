@@ -18,7 +18,7 @@ public class BigFootActor extends Actor implements Disposable {
 
     public void reset(){
         this.setPosition(
-            Gdx.graphics.getWidth() * 0.5f,
+            this.getX(),
             Gdx.graphics.getHeight()  + sprite.getHeight());
     }
 
@@ -34,16 +34,8 @@ public class BigFootActor extends Actor implements Disposable {
         sprite.draw(batch);
     }
 
-    public float distanceTo(Actor otherActor) {
-        float dx = getX() - otherActor.getX();
-        float dy = getY() - otherActor.getY();
-        return (float) Math.sqrt(dx * dx + dy * dy);
-    }
-
     @Override
     public void dispose() {
-
-
     }
 }
 

@@ -120,6 +120,7 @@ public class GameInput implements InputProcessor {
 
         if (spaceKeyPressedTime >= 1.0f) {
             bigFootActor.reset();
+
             cursorMovementAllowed = true;
         }
 
