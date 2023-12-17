@@ -57,8 +57,17 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 
             AnimatedBody animatedBody = animatedCharacter.getAnimatedBody();
             animatedBody.setActive(true);
-            animatedCharacter.setX(voicedCharacter.getColumn() * 204 - animatedCharacter.getWidth());
-            animatedCharacter.setY(voicedCharacter.getRow() * 200 - 100);
+
+
+
+            if(voicedCharacter.getRow() == 2) {
+                animatedCharacter.setX(voicedCharacter.getColumn() * 341 - animatedCharacter.getWidth());
+            }else  if(voicedCharacter.getRow() == 1){
+                animatedCharacter.setX(voicedCharacter.getColumn() * 260 - animatedCharacter.getWidth());
+            }else{
+                animatedCharacter.setX(voicedCharacter.getColumn() * 204 - animatedCharacter.getWidth());
+            }
+            animatedCharacter.setY(voicedCharacter.getRow() * 201 - 100);
             this.stage.addActor(animatedCharacter);
         }
 
