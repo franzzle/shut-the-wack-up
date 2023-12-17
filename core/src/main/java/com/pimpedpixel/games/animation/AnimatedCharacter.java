@@ -22,7 +22,11 @@ public class AnimatedCharacter extends Group{
         bodyPlusFace.addActor(this.faceComponent);
         this.faceComponent.setSpeakingState(SpeakingState.SPEAKING);
         bodyPlusFace.setName("bodyPlusFace");
+
         this.addActor(bodyPlusFace);
+
+        setWidth(animatedBody.getWidth());
+        setHeight(animatedBody.getHeight());
     }
 
     public String getCharacterName() {
@@ -43,10 +47,12 @@ public class AnimatedCharacter extends Group{
 
     public Rectangle getBoundingRectangle() {
         final Rectangle boundingRectangle = new Rectangle();
-        boundingRectangle.set(getX(),
+        boundingRectangle.set(
+            getX(),
             getY(),
-            getAnimatedBody().getWidth(),
-            getAnimatedBody().getHeight());
+            getWidth(),
+            getHeight()
+        );
         return boundingRectangle;
     }
 }

@@ -70,28 +70,7 @@ public class GameInput implements InputProcessor {
 
         SequenceAction sequenceAction = new SequenceAction(
             moveToAction,
-            new RunnableAction() {
-                @Override
-                public void run() {
-                    if(currentAnimatedCharacter != null){
-                        Array<Action> actions = currentAnimatedCharacter.getActions();
-                        if(actions != null && actions.size > 0){
-                            Action action = actions.get(0);
-                            if(action instanceof SequenceAction){
-                                SequenceAction sequenceAction = (SequenceAction) action;
-                                Array<Action> innerActions = sequenceAction.getActions();
-                                for(Action actionsInsideSequence : innerActions){
-                                    if(actionsInsideSequence instanceof PlaySoundAction){
-                                        PlaySoundAction playSoundAction = (PlaySoundAction) actionsInsideSequence;
-                                        playSoundAction.stop();
-                                    }
-                                }
-                            }
-                        }
-                        currentAnimatedCharacter.clearActions();
-                    }
-                }
-            },
+            new StopSpeakingAction(currentAnimatedCharacter, crosshairActor),
             new RunnableAction() {
             @Override
             public void run() {

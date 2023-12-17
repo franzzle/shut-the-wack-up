@@ -14,13 +14,15 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pimpedpixel.games.animation.AnimatedBody;
 import com.pimpedpixel.games.animation.AnimatedCharacter;
-import com.pimpedpixel.games.animation.lipsync.*;
+import com.pimpedpixel.games.animation.lipsync.LipsyncAction;
+import com.pimpedpixel.games.animation.lipsync.LipsyncSequence;
+import com.pimpedpixel.games.animation.lipsync.PlaySoundAction;
+import com.pimpedpixel.games.animation.lipsync.VoicedCharacter;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import static com.pimpedpixel.games.GameSettings.RESPAWN_INTERVAL;
 import static com.pimpedpixel.games.animation.WalkingDirection.DOWN;
 
 public class ShutTheWackUpGame extends ApplicationAdapter {
@@ -60,9 +62,9 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 
 
 
-            if(voicedCharacter.getRow() == 2) {
-                animatedCharacter.setX(voicedCharacter.getColumn() * 341 - animatedCharacter.getWidth());
-            }else  if(voicedCharacter.getRow() == 1){
+            if(voicedCharacter.getRow() == 1) {
+                animatedCharacter.setX(voicedCharacter.getColumn() * 260 - animatedCharacter.getWidth());
+            }else  if(voicedCharacter.getRow() == 3){
                 animatedCharacter.setX(voicedCharacter.getColumn() * 260 - animatedCharacter.getWidth());
             }else{
                 animatedCharacter.setX(voicedCharacter.getColumn() * 204 - animatedCharacter.getWidth());
@@ -71,7 +73,7 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
             this.stage.addActor(animatedCharacter);
         }
 
-        Timer.Task task = Timer.schedule(new Timer.Task() {
+        Timer.schedule(new Timer.Task() {
             @Override
             public void run() {
                 //TODO The Part that randomizes and finds the next animatedCharacter and lipsyncSequence after the last one
