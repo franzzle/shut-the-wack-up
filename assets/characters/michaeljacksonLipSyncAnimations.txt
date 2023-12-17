@@ -1,0 +1,68 @@
+michaeljacksonLipSyncAnimations.png
+size: 105, 105
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+michaeljackson-lipsync-down-A
+  rotate: false
+  xy: 1, 1
+  size: 28, 33
+  orig: 60, 155
+  offset: 17, 112
+  index: -1
+michaeljackson-lipsync-down-B
+  rotate: false
+  xy: 1, 36
+  size: 28, 33
+  orig: 60, 155
+  offset: 17, 112
+  index: -1
+michaeljackson-lipsync-down-C
+  rotate: false
+  xy: 1, 71
+  size: 28, 33
+  orig: 60, 155
+  offset: 17, 112
+  index: -1
+michaeljackson-lipsync-down-D
+  rotate: false
+  xy: 31, 1
+  size: 28, 33
+  orig: 60, 155
+  offset: 17, 112
+  index: -1
+michaeljackson-lipsync-down-E
+  rotate: false
+  xy: 61, 1
+  size: 28, 33
+  orig: 60, 155
+  offset: 17, 112
+  index: -1
+michaeljackson-lipsync-down-F
+  rotate: false
+  xy: 31, 36
+  size: 28, 33
+  orig: 60, 155
+  offset: 17, 112
+  index: -1
+michaeljackson-lipsync-down-G
+  rotate: false
+  xy: 31, 71
+  size: 28, 33
+  orig: 60, 155
+  offset: 17, 112
+  index: -1
+michaeljackson-lipsync-down-H
+  rotate: false
+  xy: 61, 36
+  size: 28, 33
+  orig: 60, 155
+  offset: 17, 112
+  index: -1
+michaeljackson-lipsync-down-X
+  rotate: false
+  xy: 61, 71
+  size: 28, 33
+  orig: 60, 155
+  offset: 17, 112
+  index: -1

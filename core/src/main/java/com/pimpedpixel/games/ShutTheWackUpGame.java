@@ -131,9 +131,6 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 
         stage.act();
         stage.draw();
-
-        boundingRectRenderer.render();
-        crosshairRectRenderer.render();
 	}
 
 	@Override
