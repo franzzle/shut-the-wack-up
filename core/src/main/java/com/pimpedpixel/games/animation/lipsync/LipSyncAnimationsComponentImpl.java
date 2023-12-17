@@ -74,13 +74,20 @@ public class LipSyncAnimationsComponentImpl extends Actor implements LipSyncAnim
     }
 
     private TextureAtlas getTextureAtlas(String characterName) {
-        PathBuilder pathBuilder = CharacterPathUtil.initPathBuilder(characterName);
+        PathBuilder pathBuilder = initPathBuilder(characterName);
         if (pathBuilder.pathExists()) {
             return new TextureAtlas(pathBuilder.build());
         }
         throw new GdxRuntimeException("Character with name " + characterName + " is not present");
     }
 
+    public static PathBuilder initPathBuilder(String characterName) {
+        PathBuilder pathBuilder = new PathBuilder();
+
+        pathBuilder.append("characters");
+        pathBuilder.append( characterName  + "LipSyncAnimations" + ".txt");
+        return pathBuilder;
+    }
 
     @Override
     public void updateLipsyncSprite(String currentCueValueIndex) {

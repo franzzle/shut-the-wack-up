@@ -50,16 +50,13 @@ public class AnimatedBody extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        if (isActive()) {
             // Check if the animation is not null and draw it
-            if (getCurrentAnimation() != null) {
-                Sprite currentFrame = currentWalkAnimation.getKeyFrame(time += Gdx.graphics.getDeltaTime(), true);
-                if(currentFrame != null){
-                    currentFrame.setPosition(getX(), getY());
-                    currentFrame.draw(batch);
-                }else{
-                    Gdx.app.log("", currentWalkAnimation.toString());
-                }
+        if (getCurrentAnimation() != null) {
+            Sprite currentFrame = currentWalkAnimation.getKeyFrame(time += Gdx.graphics.getDeltaTime(), true);
+            if(currentFrame != null){
+                currentFrame.draw(batch);
+            }else{
+                Gdx.app.log("", currentWalkAnimation.toString());
             }
         }
     }

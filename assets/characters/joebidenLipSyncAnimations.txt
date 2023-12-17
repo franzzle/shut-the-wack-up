@@ -1,0 +1,68 @@
+joebidenLipSyncAnimations.png
+size: 84, 84
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+joebiden-lipsync-down-A
+  rotate: false
+  xy: 64, 1
+  size: 19, 26
+  orig: 65, 155
+  offset: 25, 118
+  index: -1
+joebiden-lipsync-down-B
+  rotate: false
+  xy: 64, 29
+  size: 19, 26
+  orig: 65, 155
+  offset: 25, 118
+  index: -1
+joebiden-lipsync-down-C
+  rotate: false
+  xy: 1, 1
+  size: 19, 27
+  orig: 65, 155
+  offset: 25, 117
+  index: -1
+joebiden-lipsync-down-D
+  rotate: false
+  xy: 1, 30
+  size: 19, 27
+  orig: 65, 155
+  offset: 25, 117
+  index: -1
+joebiden-lipsync-down-E
+  rotate: false
+  xy: 22, 1
+  size: 19, 27
+  orig: 65, 155
+  offset: 25, 117
+  index: -1
+joebiden-lipsync-down-F
+  rotate: false
+  xy: 22, 57
+  size: 19, 26
+  orig: 65, 155
+  offset: 25, 118
+  index: -1
+joebiden-lipsync-down-G
+  rotate: false
+  xy: 43, 57
+  size: 19, 26
+  orig: 65, 155
+  offset: 25, 118
+  index: -1
+joebiden-lipsync-down-H
+  rotate: false
+  xy: 43, 1
+  size: 19, 27
+  orig: 65, 155
+  offset: 25, 117
+  index: -1
+joebiden-lipsync-down-X
+  rotate: false
+  xy: 64, 57
+  size: 19, 26
+  orig: 65, 155
+  offset: 25, 118
+  index: -1

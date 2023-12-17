@@ -42,51 +42,65 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
             VoicedCharacterParser.parseByFile("lines.json");
         System.out.println(stringVoicedCharacterMap);
 
-        AnimatedCharacter animatedCharacter= new AnimatedCharacter("borisjohnson");
-        animatedCharacter.getAnimatedBody().animateHeroWalkingInDirection(DOWN);
-        animatedCharactersMap.put("borisjohnson", animatedCharacter);
+
 
         Music music = AssetManagerHolder.assetManager.get("music/libertyBellMarch.ogg", Music.class);
         music.setVolume(0.05f);
         music.play();
 
-        Timer.schedule(new Timer.Task() {
-            @Override
-            public void run() {
-                final AnimatedCharacter animatedCharacter = animatedCharactersMap.get("borisjohnson");
-                final AnimatedBody animatedBody = animatedCharacter.getAnimatedBody();
-                animatedBody.setActive(true);
-
-                SpawnPos spawnPos = spawnCharacter();
-
-                float columnSpacing = Gdx.graphics.getWidth() / (float)spawnPos.numberOfColumns; // Recalculate spacing
-                float characterX = spawnPos.column * columnSpacing;
-                float characterY = spawnPos.row * (Gdx.graphics.getHeight() / 3f); // 3 rows evenly spaced vertically
-
-                if(characterX > Gdx.graphics.getWidth()){
-                    System.out.println("Brr");
-                }
-
-                animatedCharacter.getAnimatedBody().setX(characterX);
-                animatedCharacter.getAnimatedBody().setY(characterY);
-
-                // Schedule the character to be removed after spawnInterval
-                animatedBody.addAction(Actions.sequence(
-                    Actions.delay(SPAWN_INTERVAL),
-                    Actions.run(() -> {
-                        // Code to remove the character
-                        animatedBody.setActive(false);
-                    }
-                        )
-                ));
-            }
-        }, 0, RESPAWN_INTERVAL);
+        stage = new Stage();
+        final Viewport viewportLoading = new ScreenViewport();
+        this.stage.setViewport(viewportLoading);
 
 
-		stage = new Stage();
-		final Viewport viewportLoading = new ScreenViewport();
-		this.stage.setViewport(viewportLoading);
-		this.stage.addActor(animatedCharacter.getAnimatedBody());
+        for(String key :  stringVoicedCharacterMap.keySet()){
+            VoicedCharacter voicedCharacter = stringVoicedCharacterMap.get(key);
+            AnimatedCharacter animatedCharacter= new AnimatedCharacter(voicedCharacter.getName());
+            animatedCharacter.getAnimatedBody().animateHeroWalkingInDirection(DOWN);
+            animatedCharactersMap.put(voicedCharacter.getName(), animatedCharacter);
+
+            AnimatedBody animatedBody = animatedCharacter.getAnimatedBody();
+            animatedBody.setActive(true);
+            animatedCharacter.setX(voicedCharacter.getColumn() * 204 - animatedCharacter.getWidth());
+            animatedCharacter.setY(voicedCharacter.getRow() * 200);
+            this.stage.addActor(animatedCharacter);
+        }
+
+//        Timer.schedule(new Timer.Task() {
+//            @Override
+//            public void run() {
+//                final AnimatedCharacter animatedCharacter = animatedCharactersMap.get("borisjohnson");
+//                final AnimatedBody animatedBody = animatedCharacter.getAnimatedBody();
+//                animatedBody.setActive(true);
+//
+//                SpawnPos spawnPos = spawnCharacter();
+//
+//                float columnSpacing = (Gdx.graphics.getWidth() - animatedCharacter.getAnimatedBody().getWidth())  / ((float)spawnPos.numberOfColumns);
+//                float characterX = spawnPos.column * columnSpacing - animatedCharacter.getAnimatedBody().getWidth() * 0.5f;
+//                float remainingHeightSpace = Gdx.graphics.getHeight() - animatedCharacter.getAnimatedBody().getHeight();
+//                float characterY = spawnPos.row * remainingHeightSpace / 3f + - animatedCharacter.getAnimatedBody().getHeight() * 0.5f; // 3 rows evenly spaced vertically
+//
+//                if(characterX >= Gdx.graphics.getWidth()){
+//                    System.out.println("Brr");
+//                }
+//
+//                animatedCharacter.getAnimatedBody().setX(characterX);
+//                animatedCharacter.getAnimatedBody().setY(characterY);
+//
+//                // Schedule the character to be removed after spawnInterval
+//                animatedBody.addAction(Actions.sequence(
+//                    Actions.delay(SPAWN_INTERVAL),
+//                    Actions.run(() -> {
+//                        // Code to remove the character
+//                        animatedBody.setActive(false);
+//                    }
+//                        )
+//                ));
+//            }
+//        }, 0, RESPAWN_INTERVAL);
+
+
+
 
         final CrosshairActor crosshairActor = new CrosshairActor();
         final BigFootActor bigFootActor = new BigFootActor();
@@ -97,12 +111,12 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 	}
 
     private SpawnPos spawnCharacter() {
-        int row = MathUtils.random(0, 2); // 0, 1, or 2 for the three rows
-        int col = MathUtils.random(1, row == 1 ? 3 : 4);
+        int row = MathUtils.random(1, 3); // 0, 1, or 2 for the three rows
+        int col = MathUtils.random(1, row == 2 ? 3 : 4);
         SpawnPos spawnPos = new SpawnPos();
         spawnPos.row = row;
         spawnPos.column = col;
-        spawnPos.numberOfColumns = row == 1 ? 3 : 4;
+        spawnPos.numberOfColumns = row == 2 ? 3 : 4;
         return spawnPos;
     }
 

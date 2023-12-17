@@ -1,0 +1,180 @@
+joebidenAnimations.png
+size: 463, 652
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+joebiden-lipsyncdown-1
+  rotate: false
+  xy: 187, 158
+  size: 65, 155
+  orig: 65, 155
+  offset: 0, 0
+  index: -1
+joebiden-sleeping-1
+  rotate: false
+  xy: 388, 158
+  size: 74, 147
+  orig: 74, 147
+  offset: 0, 0
+  index: -1
+joebiden-sleeping-2
+  rotate: false
+  xy: 1, 315
+  size: 74, 147
+  orig: 74, 147
+  offset: 0, 0
+  index: -1
+joebiden-walkdown-1
+  rotate: false
+  xy: 337, 1
+  size: 60, 155
+  orig: 60, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkdown-2
+  rotate: false
+  xy: 399, 1
+  size: 60, 155
+  orig: 60, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkdown-3
+  rotate: false
+  xy: 1, 158
+  size: 60, 155
+  orig: 60, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkdown-4
+  rotate: false
+  xy: 63, 158
+  size: 60, 155
+  orig: 60, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkdown-5
+  rotate: false
+  xy: 125, 158
+  size: 60, 155
+  orig: 60, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkdownrest-1
+  rotate: false
+  xy: 254, 158
+  size: 65, 155
+  orig: 65, 155
+  offset: 0, 0
+  index: -1
+joebiden-walksideways-1
+  rotate: false
+  xy: 153, 315
+  size: 86, 167
+  orig: 86, 167
+  offset: 0, 0
+  index: -1
+joebiden-walksideways-2
+  rotate: false
+  xy: 241, 315
+  size: 86, 167
+  orig: 86, 167
+  offset: 0, 0
+  index: -1
+joebiden-walksideways-3
+  rotate: false
+  xy: 329, 315
+  size: 86, 167
+  orig: 86, 167
+  offset: 0, 0
+  index: -1
+joebiden-walksideways-4
+  rotate: false
+  xy: 1, 484
+  size: 86, 167
+  orig: 86, 167
+  offset: 0, 0
+  index: -1
+joebiden-walksideways-5
+  rotate: false
+  xy: 89, 484
+  size: 86, 167
+  orig: 86, 167
+  offset: 0, 0
+  index: -1
+joebiden-walksideways-6
+  rotate: false
+  xy: 177, 484
+  size: 86, 167
+  orig: 86, 167
+  offset: 0, 0
+  index: -1
+joebiden-walksideways-7
+  rotate: false
+  xy: 265, 484
+  size: 86, 167
+  orig: 86, 167
+  offset: 0, 0
+  index: -1
+joebiden-walksideways-8
+  rotate: false
+  xy: 353, 484
+  size: 86, 167
+  orig: 86, 167
+  offset: 0, 0
+  index: -1
+joebiden-walksidewaysrest-1
+  rotate: false
+  xy: 321, 158
+  size: 65, 155
+  orig: 65, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkup-1
+  rotate: false
+  xy: 1, 1
+  size: 54, 155
+  orig: 54, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkup-2
+  rotate: false
+  xy: 57, 1
+  size: 54, 155
+  orig: 54, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkup-3
+  rotate: false
+  xy: 113, 1
+  size: 54, 155
+  orig: 54, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkup-4
+  rotate: false
+  xy: 169, 1
+  size: 54, 155
+  orig: 54, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkup-5
+  rotate: false
+  xy: 225, 1
+  size: 54, 155
+  orig: 54, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkup-6
+  rotate: false
+  xy: 281, 1
+  size: 54, 155
+  orig: 54, 155
+  offset: 0, 0
+  index: -1
+joebiden-walkuprest-1
+  rotate: false
+  xy: 77, 315
+  size: 74, 147
+  orig: 74, 147
+  offset: 0, 0
+  index: -1

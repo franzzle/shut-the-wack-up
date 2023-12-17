@@ -28,8 +28,10 @@ public class VoicedCharacterParser {
             JsonValue characterValue = lsRootArray.next();
             String name = characterValue.getString("name");
             String sentence = characterValue.getString("sentence");
+            int row = characterValue.getInt("row");
+            int column = characterValue.getInt("column");
 
-            VoicedCharacter voicedCharacter = new VoicedCharacter(name, sentence);
+            VoicedCharacter voicedCharacter = new VoicedCharacter(name, sentence, row, column);
 
             characterMap.put(name, voicedCharacter);
         }

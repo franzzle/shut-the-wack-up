@@ -1,54 +1,54 @@
 markzuckerbergAnimations.png
-size: 512, 1024
+size: 256, 512
 format: RGBA8888
-filter: Linear,Linear
+filter: Nearest,Linear
 repeat: none
 markzuckerberg-lipsyncdown-1
   rotate: false
   xy: 0, 0
-  size: 130, 310
-  orig: 130, 310
+  size: 65, 155
+  orig: 65, 155
   offset: 0, 0
   index: -1
 markzuckerberg-walkdown-1
   rotate: false
-  xy: 130, 0
-  size: 130, 310
-  orig: 130, 310
+  xy: 65, 0
+  size: 65, 155
+  orig: 65, 155
   offset: 0, 0
   index: -1
 markzuckerberg-walkdownrest-1
   rotate: false
-  xy: 260, 0
-  size: 130, 310
-  orig: 130, 310
+  xy: 130, 0
+  size: 65, 155
+  orig: 65, 155
   offset: 0, 0
   index: -1
 markzuckerberg-walksideways-1
   rotate: false
-  xy: 0, 310
-  size: 130, 310
-  orig: 130, 310
+  xy: 0, 155
+  size: 65, 155
+  orig: 65, 155
   offset: 0, 0
   index: -1
 markzuckerberg-walksidewaysrest-1
   rotate: false
-  xy: 0, 620
-  size: 130, 310
-  orig: 130, 310
+  xy: 0, 310
+  size: 65, 155
+  orig: 65, 155
   offset: 0, 0
   index: -1
 markzuckerberg-walkup-1
   rotate: false
-  xy: 130, 310
-  size: 130, 310
-  orig: 130, 310
+  xy: 65, 155
+  size: 65, 155
+  orig: 65, 155
   offset: 0, 0
   index: -1
 markzuckerberg-walkuprest-1
   rotate: false
-  xy: 130, 620
-  size: 130, 310
-  orig: 130, 310
+  xy: 65, 310
+  size: 65, 155
+  orig: 65, 155
   offset: 0, 0
   index: -1

@@ -1,0 +1,194 @@
+melaniatrumpAnimations.png
+size: 1792, 1728
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+melaniatrump-lipsyncdown-1
+  rotate: false
+  xy: 139, 1
+  size: 156, 504
+  orig: 240, 580
+  offset: 34, 6
+  index: -1
+melaniatrump-walkdown-1
+  rotate: false
+  xy: 341, 575
+  size: 172, 584
+  orig: 240, 596
+  offset: 18, 10
+  index: -1
+melaniatrump-walkdown-2
+  rotate: false
+  xy: 515, 575
+  size: 172, 588
+  orig: 240, 596
+  offset: 26, 6
+  index: -1
+melaniatrump-walkdown-3
+  rotate: false
+  xy: 689, 575
+  size: 172, 590
+  orig: 240, 596
+  offset: 34, 6
+  index: -1
+melaniatrump-walkdown-4
+  rotate: false
+  xy: 1617, 1
+  size: 172, 568
+  orig: 240, 596
+  offset: 42, 26
+  index: -1
+melaniatrump-walkdown-5
+  rotate: false
+  xy: 1611, 575
+  size: 180, 590
+  orig: 240, 596
+  offset: 42, 0
+  index: -1
+melaniatrump-walkdown-6
+  rotate: false
+  xy: 1, 575
+  size: 168, 588
+  orig: 240, 596
+  offset: 42, 6
+  index: -1
+melaniatrump-walkdown-7
+  rotate: false
+  xy: 171, 575
+  size: 168, 588
+  orig: 240, 596
+  offset: 30, 6
+  index: -1
+melaniatrump-walkdown-8
+  rotate: false
+  xy: 1281, 1
+  size: 164, 572
+  orig: 240, 596
+  offset: 26, 22
+  index: -1
+melaniatrump-walkdownrest-1
+  rotate: false
+  xy: 455, 1
+  size: 156, 568
+  orig: 240, 580
+  offset: 34, 6
+  index: -1
+melaniatrump-walksideways-1
+  rotate: false
+  xy: 1445, 1167
+  size: 332, 556
+  orig: 364, 600
+  offset: 14, 18
+  index: -1
+melaniatrump-walksideways-2
+  rotate: false
+  xy: 207, 1167
+  size: 278, 556
+  orig: 364, 600
+  offset: 0, 18
+  index: -1
+melaniatrump-walksideways-3
+  rotate: false
+  xy: 1231, 575
+  size: 188, 556
+  orig: 364, 600
+  offset: 54, 18
+  index: -1
+melaniatrump-walksideways-4
+  rotate: false
+  xy: 1, 1167
+  size: 204, 560
+  orig: 364, 600
+  offset: 78, 18
+  index: -1
+melaniatrump-walksideways-5
+  rotate: false
+  xy: 1121, 1167
+  size: 322, 556
+  orig: 364, 600
+  offset: 42, 18
+  index: -1
+melaniatrump-walksideways-6
+  rotate: false
+  xy: 487, 1167
+  size: 310, 556
+  orig: 364, 600
+  offset: 0, 18
+  index: -1
+melaniatrump-walksideways-7
+  rotate: false
+  xy: 1421, 575
+  size: 188, 556
+  orig: 364, 600
+  offset: 54, 18
+  index: -1
+melaniatrump-walksideways-8
+  rotate: false
+  xy: 1045, 575
+  size: 184, 560
+  orig: 364, 600
+  offset: 82, 18
+  index: -1
+melaniatrump-walksideways-9
+  rotate: false
+  xy: 799, 1167
+  size: 320, 556
+  orig: 364, 600
+  offset: 42, 18
+  index: -1
+melaniatrump-walksidewaysrest-1
+  rotate: false
+  xy: 1, 1
+  size: 136, 556
+  orig: 176, 588
+  offset: 18, 6
+  index: -1
+melaniatrump-walkup-1
+  rotate: false
+  xy: 1447, 1
+  size: 168, 560
+  orig: 240, 600
+  offset: 38, 26
+  index: -1
+melaniatrump-walkup-2
+  rotate: false
+  xy: 1111, 1
+  size: 168, 552
+  orig: 240, 600
+  offset: 34, 34
+  index: -1
+melaniatrump-walkup-3
+  rotate: false
+  xy: 945, 1
+  size: 164, 560
+  orig: 240, 600
+  offset: 30, 34
+  index: -1
+melaniatrump-walkup-4
+  rotate: false
+  xy: 863, 575
+  size: 180, 564
+  orig: 240, 600
+  offset: 14, 26
+  index: -1
+melaniatrump-walkup-5
+  rotate: false
+  xy: 613, 1
+  size: 164, 552
+  orig: 240, 600
+  offset: 26, 34
+  index: -1
+melaniatrump-walkup-6
+  rotate: false
+  xy: 779, 1
+  size: 164, 552
+  orig: 240, 600
+  offset: 30, 34
+  index: -1
+melaniatrump-walkuprest-1
+  rotate: false
+  xy: 297, 1
+  size: 156, 564
+  orig: 240, 600
+  offset: 34, 26
+  index: -1
