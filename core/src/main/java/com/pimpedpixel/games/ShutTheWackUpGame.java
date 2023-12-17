@@ -65,25 +65,22 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
         Timer.schedule(new Timer.Task() {
             @Override
             public void run() {
+                //TODO The Part that randomizes and finds the next animatedCharacter and lipsyncSequence after the last one
                 String[] keysArray = voicedCharacterMap.keySet().toArray(new String[0]);
-
-                // Create a random number generator
                 Random random = new Random();
-
-                // Generate a random index
                 int randomIndex = random.nextInt(keysArray.length);
-
-                // Get the random key
                 String randomKey = keysArray[randomIndex];
-
                 final AnimatedCharacter animatedCharacter = animatedCharactersMap.get(randomKey);
+                String fileName = "speech/" + animatedCharacter.getCharacterName() + "/sentence_lipsync.json";
+                LipsyncSequence lipsyncSequence = AssetManagerHolder.assetManager.get(fileName, LipsyncSequence.class);
 
-                // Schedule the character to be removed after spawnInterval
+                //TODO Part that should run when the last one is finished
                 animatedCharacter.addAction(Actions.sequence(
-                    new PlaySoundAction(animatedCharacter.getCharacterName())
+                    new PlaySoundAction(animatedCharacter.getCharacterName()),
+                    new LipsyncAction(animatedCharacter, lipsyncSequence)
                 ));
             }
-        }, 0, RESPAWN_INTERVAL);
+        }, 0, RESPAWN_INTERVAL); // RESPAWN_INTERVAL should be set to lipsyncSequence.getMetadata().getDuration()
 
 
 
