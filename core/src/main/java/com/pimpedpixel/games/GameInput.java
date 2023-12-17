@@ -4,9 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
+import com.badlogic.gdx.utils.Array;
+import com.pimpedpixel.games.animation.AnimatedCharacter;
+import com.pimpedpixel.games.animation.lipsync.PlaySoundAction;
 
 import static com.pimpedpixel.games.GameSettings.CROSSHAIR_DISPLACEMENT_UNIT;
 
@@ -20,8 +24,9 @@ public class GameInput implements InputProcessor {
     public boolean cursorMovementAllowed = true;
     private float spaceKeyPressedTime = 0f;
 
-    public GameInput(CrosshairActor crosshairActor,
-                     BigFootActor bigFootActor){
+    public AnimatedCharacter currentAnimatedCharacter;
+
+    public GameInput(CrosshairActor crosshairActor, BigFootActor bigFootActor){
         this.crosshairActor = crosshairActor;
         this.bigFootActor = bigFootActor;
     }
@@ -65,6 +70,28 @@ public class GameInput implements InputProcessor {
 
         SequenceAction sequenceAction = new SequenceAction(
             moveToAction,
+            new RunnableAction() {
+                @Override
+                public void run() {
+                    if(currentAnimatedCharacter != null){
+                        Array<Action> actions = currentAnimatedCharacter.getActions();
+                        if(actions != null && actions.size > 0){
+                            Action action = actions.get(0);
+                            if(action instanceof SequenceAction){
+                                SequenceAction sequenceAction = (SequenceAction) action;
+                                Array<Action> innerActions = sequenceAction.getActions();
+                                for(Action actionsInsideSequence : innerActions){
+                                    if(actionsInsideSequence instanceof PlaySoundAction){
+                                        PlaySoundAction playSoundAction = (PlaySoundAction) actionsInsideSequence;
+                                        playSoundAction.stop();
+                                    }
+                                }
+                            }
+                        }
+                        currentAnimatedCharacter.clearActions();
+                    }
+                }
+            },
             new RunnableAction() {
             @Override
             public void run() {
@@ -120,9 +147,10 @@ public class GameInput implements InputProcessor {
 
         if (spaceKeyPressedTime >= 1.0f) {
             bigFootActor.reset();
-
             cursorMovementAllowed = true;
         }
+
+
 
         // Ensure the new position stays within the bounds
         newX = Math.max(0, Math.min(newX, Gdx.graphics.getWidth() - crosshairActor.getWidth()));

@@ -62,7 +62,7 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
             this.stage.addActor(animatedCharacter);
         }
 
-        Timer.schedule(new Timer.Task() {
+        Timer.Task task = Timer.schedule(new Timer.Task() {
             @Override
             public void run() {
                 //TODO The Part that randomizes and finds the next animatedCharacter and lipsyncSequence after the last one
@@ -80,13 +80,14 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
                     new LipsyncAction(animatedCharacter, lipsyncSequence)
                 ));
 
+                gameInput.currentAnimatedCharacter = animatedCharacter;
+
                 // Set RESPAWN_INTERVAL to lipsyncSequence duration
                 float RESPAWN_INTERVAL = lipsyncSequence.getMetadata().getDuration();
                 // Schedule the next random selection and play after RESPAWN_INTERVAL
                 Timer.schedule(this, RESPAWN_INTERVAL);
             }
         }, 0);
-
 
 
         final CrosshairActor crosshairActor = new CrosshairActor();
