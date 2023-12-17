@@ -7,62 +7,62 @@ trump-lipsync-down-A
   rotate: false
   xy: 1, 1
   size: 26, 37
-  orig: 26, 37
-  offset: 36, -6
+  orig: 96, 155
+  offset: 36, 112
   index: -1
 trump-lipsync-down-B
   rotate: false
-  xy: 1, 40
+  xy: 29, 1
   size: 26, 37
-  orig: 26, 37
-  offset: 36, -6
+  orig: 96, 155
+  offset: 36, 112
   index: -1
 trump-lipsync-down-C
   rotate: false
-  xy: 1, 79
+  xy: 57, 1
   size: 26, 37
-  orig: 26, 37
-  offset: 36, -6
+  orig: 96, 155
+  offset: 36, 112
   index: -1
 trump-lipsync-down-D
   rotate: false
-  xy: 29, 1
+  xy: 85, 1
   size: 26, 37
-  orig: 26, 37
-  offset: 36, -6
+  orig: 96, 155
+  offset: 36, 112
   index: -1
 trump-lipsync-down-E
   rotate: false
-  xy: 57, 1
+  xy: 1, 40
   size: 26, 37
-  orig: 26, 37
-  offset: 36, -6
+  orig: 96, 155
+  offset: 36, 112
   index: -1
 trump-lipsync-down-F
   rotate: false
-  xy: 85, 1
+  xy: 29, 40
   size: 26, 37
-  orig: 26, 37
-  offset: 36, -6
+  orig: 96, 155
+  offset: 36, 112
   index: -1
 trump-lipsync-down-G
   rotate: false
-  xy: 29, 40
+  xy: 57, 40
   size: 26, 37
-  orig: 26, 37
-  offset: 36, -6
+  orig: 96, 155
+  offset: 36, 112
   index: -1
 trump-lipsync-down-H
   rotate: false
-  xy: 29, 79
+  xy: 85, 40
   size: 26, 37
-  orig: 26, 37
-  offset: 36, -6
+  orig: 96, 155
+  offset: 36, 112
   index: -1
 trump-lipsync-down-X
   rotate: false
-  xy: 57, 40
+  xy: 1, 79
   size: 26, 37
-  orig: 26, 37
-  offset: 36, -6
+  orig: 96, 155
+  offset: 36, 112
   index: -1

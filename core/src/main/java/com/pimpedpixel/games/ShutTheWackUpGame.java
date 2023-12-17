@@ -14,14 +14,13 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pimpedpixel.games.animation.AnimatedBody;
 import com.pimpedpixel.games.animation.AnimatedCharacter;
-import com.pimpedpixel.games.animation.lipsync.VoicedCharacter;
-import com.pimpedpixel.games.animation.lipsync.VoicedCharacterParser;
+import com.pimpedpixel.games.animation.lipsync.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import static com.pimpedpixel.games.GameSettings.RESPAWN_INTERVAL;
-import static com.pimpedpixel.games.GameSettings.SPAWN_INTERVAL;
 import static com.pimpedpixel.games.animation.WalkingDirection.DOWN;
 
 public class ShutTheWackUpGame extends ApplicationAdapter {
@@ -38,14 +37,11 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
         background = AssetManagerHolder.assetManager.get("background.png");
         animatedCharactersMap = new HashMap<>();
 
-        Map<String, VoicedCharacter> stringVoicedCharacterMap =
-            VoicedCharacterParser.parseByFile("lines.json");
-        System.out.println(stringVoicedCharacterMap);
-
-
+        Map<String, VoicedCharacter> voicedCharacterMap = AssetManagerHolder.load();
+        System.out.println(voicedCharacterMap);
 
         Music music = AssetManagerHolder.assetManager.get("music/libertyBellMarch.ogg", Music.class);
-        music.setVolume(0.05f);
+        music.setVolume(0.02f);
         music.play();
 
         stage = new Stage();
@@ -53,8 +49,8 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
         this.stage.setViewport(viewportLoading);
 
 
-        for(String key :  stringVoicedCharacterMap.keySet()){
-            VoicedCharacter voicedCharacter = stringVoicedCharacterMap.get(key);
+        for(String key :  voicedCharacterMap.keySet()){
+            VoicedCharacter voicedCharacter = voicedCharacterMap.get(key);
             AnimatedCharacter animatedCharacter= new AnimatedCharacter(voicedCharacter.getName());
             animatedCharacter.getAnimatedBody().animateHeroWalkingInDirection(DOWN);
             animatedCharactersMap.put(voicedCharacter.getName(), animatedCharacter);
@@ -62,42 +58,32 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
             AnimatedBody animatedBody = animatedCharacter.getAnimatedBody();
             animatedBody.setActive(true);
             animatedCharacter.setX(voicedCharacter.getColumn() * 204 - animatedCharacter.getWidth());
-            animatedCharacter.setY(voicedCharacter.getRow() * 200);
+            animatedCharacter.setY(voicedCharacter.getRow() * 200 - 100);
             this.stage.addActor(animatedCharacter);
         }
 
-//        Timer.schedule(new Timer.Task() {
-//            @Override
-//            public void run() {
-//                final AnimatedCharacter animatedCharacter = animatedCharactersMap.get("borisjohnson");
-//                final AnimatedBody animatedBody = animatedCharacter.getAnimatedBody();
-//                animatedBody.setActive(true);
-//
-//                SpawnPos spawnPos = spawnCharacter();
-//
-//                float columnSpacing = (Gdx.graphics.getWidth() - animatedCharacter.getAnimatedBody().getWidth())  / ((float)spawnPos.numberOfColumns);
-//                float characterX = spawnPos.column * columnSpacing - animatedCharacter.getAnimatedBody().getWidth() * 0.5f;
-//                float remainingHeightSpace = Gdx.graphics.getHeight() - animatedCharacter.getAnimatedBody().getHeight();
-//                float characterY = spawnPos.row * remainingHeightSpace / 3f + - animatedCharacter.getAnimatedBody().getHeight() * 0.5f; // 3 rows evenly spaced vertically
-//
-//                if(characterX >= Gdx.graphics.getWidth()){
-//                    System.out.println("Brr");
-//                }
-//
-//                animatedCharacter.getAnimatedBody().setX(characterX);
-//                animatedCharacter.getAnimatedBody().setY(characterY);
-//
-//                // Schedule the character to be removed after spawnInterval
-//                animatedBody.addAction(Actions.sequence(
-//                    Actions.delay(SPAWN_INTERVAL),
-//                    Actions.run(() -> {
-//                        // Code to remove the character
-//                        animatedBody.setActive(false);
-//                    }
-//                        )
-//                ));
-//            }
-//        }, 0, RESPAWN_INTERVAL);
+        Timer.schedule(new Timer.Task() {
+            @Override
+            public void run() {
+                String[] keysArray = voicedCharacterMap.keySet().toArray(new String[0]);
+
+                // Create a random number generator
+                Random random = new Random();
+
+                // Generate a random index
+                int randomIndex = random.nextInt(keysArray.length);
+
+                // Get the random key
+                String randomKey = keysArray[randomIndex];
+
+                final AnimatedCharacter animatedCharacter = animatedCharactersMap.get(randomKey);
+
+                // Schedule the character to be removed after spawnInterval
+                animatedCharacter.addAction(Actions.sequence(
+                    new PlaySoundAction(animatedCharacter.getCharacterName())
+                ));
+            }
+        }, 0, RESPAWN_INTERVAL);
 
 
 
