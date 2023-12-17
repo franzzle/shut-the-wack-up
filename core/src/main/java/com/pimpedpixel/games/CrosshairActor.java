@@ -4,12 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Disposable;
 
-public class CrosshairActor extends Actor implements Disposable {
+public class CrosshairActor extends Actor implements Disposable, BoundingRectSupport {
     private Sprite sprite;
-
 
     public CrosshairActor() {
         Texture texture = AssetManagerHolder.assetManager.get("hud/crosshair.png");
@@ -23,6 +23,18 @@ public class CrosshairActor extends Actor implements Disposable {
         super.act(delta);
         sprite.setPosition(this.getX(), this.getY());
     }
+
+    public Rectangle getBoundingRectangle() {
+        final Rectangle boundingRectangle = new Rectangle();
+        boundingRectangle.set(
+            getX(),
+            getY(),
+            getWidth(),
+            getHeight()
+        );
+        return boundingRectangle;
+    }
+
 
     @Override
     public void draw(Batch batch, float parentAlpha) {

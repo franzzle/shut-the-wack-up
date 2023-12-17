@@ -10,7 +10,6 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.pimpedpixel.games.PathBuilder;
 import com.pimpedpixel.games.animation.AnimatedSprite;
-import com.pimpedpixel.games.animation.CharacterPathUtil;
 import com.pimpedpixel.games.animation.SpeakingState;
 import com.pimpedpixel.games.animation.WalkingDirection;
 

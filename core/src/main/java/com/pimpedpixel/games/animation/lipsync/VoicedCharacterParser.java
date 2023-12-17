@@ -6,7 +6,6 @@ import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 
 import java.io.Reader;
-import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
 

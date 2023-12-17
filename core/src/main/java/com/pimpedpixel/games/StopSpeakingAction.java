@@ -1,5 +1,6 @@
 package com.pimpedpixel.games;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
@@ -19,11 +20,11 @@ public class StopSpeakingAction extends RunnableAction {
 
     @Override
     public void run() {
-        if(currentAnimatedCharacter.getBoundingRectangle().contains(crosshairActor.getX(), crosshairActor.getY())){
-            System.out.println("YES");
-        }
+        Rectangle boundingRectangle = currentAnimatedCharacter.getBoundingRectangle();
 
-        stopSpeaking();
+        if(boundingRectangle.overlaps(crosshairActor.getBoundingRectangle())){
+            stopSpeaking();
+        }
     }
 
     private void stopSpeaking() {

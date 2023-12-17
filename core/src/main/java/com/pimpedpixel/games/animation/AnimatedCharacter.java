@@ -3,9 +3,10 @@ package com.pimpedpixel.games.animation;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.pimpedpixel.games.BoundingRectSupport;
 import com.pimpedpixel.games.animation.lipsync.LipSyncAnimationsComponentImpl;
 
-public class AnimatedCharacter extends Group{
+public class AnimatedCharacter extends Group implements BoundingRectSupport {
     private final String characterName;
     private final AnimatedBody animatedBody;
 

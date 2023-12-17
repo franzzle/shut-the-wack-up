@@ -8,10 +8,10 @@ import com.badlogic.gdx.math.Rectangle;
 public class BoundingRectRenderer implements Renderable {
     private final ShapeRenderer shapeRenderer;
     private final Camera orthographicCamera;
-    private final Rectangle boundingRect;
+    private final BoundingRectSupport boundingRectSupport;
 
-    public BoundingRectRenderer(Rectangle boundingRect, Camera orthographicCamera) {
-        this.boundingRect = boundingRect;
+    public BoundingRectRenderer(BoundingRectSupport boundingRectSupport, Camera orthographicCamera) {
+        this.boundingRectSupport = boundingRectSupport;
         this.orthographicCamera = orthographicCamera;
         this.shapeRenderer = new ShapeRenderer();
     }
@@ -21,8 +21,9 @@ public class BoundingRectRenderer implements Renderable {
         shapeRenderer.setProjectionMatrix(orthographicCamera.combined);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
         shapeRenderer.setColor(Color.RED);
+        Rectangle boundingRect = boundingRectSupport.getBoundingRectangle();
         shapeRenderer.rect(
-                boundingRect.getX(),
+            boundingRect.getX(),
                 boundingRect.getY(),
                 boundingRect.getWidth(),
                 boundingRect.getHeight());

@@ -6,7 +6,6 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -34,6 +33,7 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
     private GameInput gameInput;
 
     private BoundingRectRenderer boundingRectRenderer;
+    private BoundingRectRenderer crosshairRectRenderer;
 
 	@Override
 	public void create () {
@@ -72,11 +72,6 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
             this.stage.addActor(animatedCharacter);
         }
 
-        AnimatedCharacter animatedCharacter = animatedCharactersMap.get("alberteinstein");
-        Rectangle boundingRectangle = animatedCharacter.getBoundingRectangle();
-        boundingRectRenderer = new BoundingRectRenderer(
-            boundingRectangle,
-            viewportLoading.getCamera());
 
         Timer.schedule(new Timer.Task() {
             @Override
@@ -111,6 +106,7 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
         this.stage.addActor(bigFootActor);
         this.stage.addActor(crosshairActor);
         this.gameInput = new GameInput(crosshairActor, bigFootActor);
+
         Gdx.input.setInputProcessor(this.gameInput);
 	}
 
@@ -137,6 +133,7 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
         stage.draw();
 
         boundingRectRenderer.render();
+        crosshairRectRenderer.render();
 	}
 
 	@Override

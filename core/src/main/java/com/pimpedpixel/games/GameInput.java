@@ -4,13 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
-import com.badlogic.gdx.utils.Array;
 import com.pimpedpixel.games.animation.AnimatedCharacter;
-import com.pimpedpixel.games.animation.lipsync.PlaySoundAction;
 
 import static com.pimpedpixel.games.GameSettings.CROSSHAIR_DISPLACEMENT_UNIT;
 
