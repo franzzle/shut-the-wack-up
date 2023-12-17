@@ -79,9 +79,13 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
                     new PlaySoundAction(animatedCharacter.getCharacterName()),
                     new LipsyncAction(animatedCharacter, lipsyncSequence)
                 ));
-            }
-        }, 0, RESPAWN_INTERVAL); // RESPAWN_INTERVAL should be set to lipsyncSequence.getMetadata().getDuration()
 
+                // Set RESPAWN_INTERVAL to lipsyncSequence duration
+                float RESPAWN_INTERVAL = lipsyncSequence.getMetadata().getDuration();
+                // Schedule the next random selection and play after RESPAWN_INTERVAL
+                Timer.schedule(this, RESPAWN_INTERVAL);
+            }
+        }, 0);
 
 
 
