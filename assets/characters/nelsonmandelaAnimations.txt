@@ -1,12 +1,12 @@
-joebidenAnimations.png
-size: 256, 256
+nelsonmandelaAnimations.png
+size: 128, 256
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-joebiden-lipsyncdown-1
+nelsonmandela-lipsyncdown-1
   rotate: false
   xy: 0, 0
-  size: 65, 155
-  orig: 65, 155
+  size: 67, 155
+  orig: 67, 155
   offset: 0, 0
   index: -1

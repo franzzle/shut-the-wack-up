@@ -1,0 +1,68 @@
+nelsonmandelaLipSyncAnimations.png
+size: 90, 90
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+nelsonmandela-lipsync-down-A
+  rotate: false
+  xy: 1, 1
+  size: 20, 29
+  orig: 67, 155
+  offset: 25, 112
+  index: -1
+nelsonmandela-lipsync-down-B
+  rotate: false
+  xy: 1, 32
+  size: 20, 29
+  orig: 67, 155
+  offset: 25, 112
+  index: -1
+nelsonmandela-lipsync-down-C
+  rotate: false
+  xy: 23, 1
+  size: 20, 29
+  orig: 67, 155
+  offset: 25, 112
+  index: -1
+nelsonmandela-lipsync-down-D
+  rotate: false
+  xy: 67, 1
+  size: 20, 28
+  orig: 67, 155
+  offset: 25, 112
+  index: -1
+nelsonmandela-lipsync-down-E
+  rotate: false
+  xy: 67, 31
+  size: 20, 28
+  orig: 67, 155
+  offset: 25, 112
+  index: -1
+nelsonmandela-lipsync-down-F
+  rotate: false
+  xy: 45, 32
+  size: 20, 28
+  orig: 67, 155
+  offset: 25, 112
+  index: -1
+nelsonmandela-lipsync-down-G
+  rotate: false
+  xy: 23, 32
+  size: 20, 29
+  orig: 67, 155
+  offset: 25, 112
+  index: -1
+nelsonmandela-lipsync-down-H
+  rotate: false
+  xy: 67, 61
+  size: 20, 28
+  orig: 67, 155
+  offset: 25, 112
+  index: -1
+nelsonmandela-lipsync-down-X
+  rotate: false
+  xy: 45, 1
+  size: 20, 29
+  orig: 67, 155
+  offset: 25, 112
+  index: -1

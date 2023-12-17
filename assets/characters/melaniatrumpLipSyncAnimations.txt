@@ -1,68 +1,68 @@
 melaniatrumpLipSyncAnimations.png
-size: 576, 568
+size: 72, 72
 format: RGBA8888
-filter: Linear,Linear
+filter: Nearest,Nearest
 repeat: none
 melaniatrump-lipsync-down-A
   rotate: false
   xy: 1, 1
-  size: 62, 566
-  orig: 62, 566
-  offset: 87, -7
+  size: 17, 22
+  orig: 60, 150
+  offset: 21, 127
   index: -1
 melaniatrump-lipsync-down-B
   rotate: false
-  xy: 65, 1
-  size: 62, 566
-  orig: 62, 566
-  offset: 87, -7
+  xy: 20, 1
+  size: 17, 22
+  orig: 60, 150
+  offset: 21, 127
   index: -1
 melaniatrump-lipsync-down-C
   rotate: false
-  xy: 129, 1
-  size: 62, 566
-  orig: 62, 566
-  offset: 87, -7
+  xy: 39, 1
+  size: 17, 22
+  orig: 60, 150
+  offset: 21, 127
   index: -1
 melaniatrump-lipsync-down-D
   rotate: false
-  xy: 193, 1
-  size: 62, 566
-  orig: 62, 566
-  offset: 87, -7
+  xy: 1, 25
+  size: 17, 22
+  orig: 60, 150
+  offset: 21, 127
   index: -1
 melaniatrump-lipsync-down-E
   rotate: false
-  xy: 257, 1
-  size: 62, 566
-  orig: 62, 566
-  offset: 87, -7
+  xy: 20, 25
+  size: 17, 22
+  orig: 60, 150
+  offset: 21, 127
   index: -1
 melaniatrump-lipsync-down-F
   rotate: false
-  xy: 321, 1
-  size: 62, 566
-  orig: 62, 566
-  offset: 87, -7
+  xy: 39, 25
+  size: 17, 22
+  orig: 60, 150
+  offset: 21, 127
   index: -1
 melaniatrump-lipsync-down-G
   rotate: false
-  xy: 385, 1
-  size: 62, 566
-  orig: 62, 566
-  offset: 87, -7
+  xy: 1, 49
+  size: 17, 22
+  orig: 60, 150
+  offset: 21, 127
   index: -1
 melaniatrump-lipsync-down-H
   rotate: false
-  xy: 449, 1
-  size: 62, 566
-  orig: 62, 566
-  offset: 87, -7
+  xy: 20, 49
+  size: 17, 22
+  orig: 60, 150
+  offset: 21, 127
   index: -1
 melaniatrump-lipsync-down-X
   rotate: false
-  xy: 513, 1
-  size: 62, 566
-  orig: 62, 566
-  offset: 87, -7
+  xy: 39, 49
+  size: 17, 22
+  orig: 60, 150
+  offset: 21, 127
   index: -1
