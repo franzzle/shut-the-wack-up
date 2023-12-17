@@ -6,6 +6,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -32,6 +33,8 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 	private Stage stage;
     private GameInput gameInput;
 
+    private BoundingRectRenderer boundingRectRenderer;
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
@@ -40,7 +43,6 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
         animatedCharactersMap = new HashMap<>();
 
         Map<String, VoicedCharacter> voicedCharacterMap = AssetManagerHolder.load();
-        System.out.println(voicedCharacterMap);
 
         Music music = AssetManagerHolder.assetManager.get("music/libertyBellMarch.ogg", Music.class);
         music.setVolume(0.02f);
@@ -50,7 +52,6 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
         final Viewport viewportLoading = new ScreenViewport();
         this.stage.setViewport(viewportLoading);
 
-
         for(String key :  voicedCharacterMap.keySet()){
             VoicedCharacter voicedCharacter = voicedCharacterMap.get(key);
             AnimatedCharacter animatedCharacter= new AnimatedCharacter(voicedCharacter.getName());
@@ -59,8 +60,6 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 
             AnimatedBody animatedBody = animatedCharacter.getAnimatedBody();
             animatedBody.setActive(true);
-
-
 
             if(voicedCharacter.getRow() == 1) {
                 animatedCharacter.setX(voicedCharacter.getColumn() * 260 - animatedCharacter.getWidth());
@@ -72,6 +71,12 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
             animatedCharacter.setY(voicedCharacter.getRow() * 201 - 100);
             this.stage.addActor(animatedCharacter);
         }
+
+        AnimatedCharacter animatedCharacter = animatedCharactersMap.get("alberteinstein");
+        Rectangle boundingRectangle = animatedCharacter.getBoundingRectangle();
+        boundingRectRenderer = new BoundingRectRenderer(
+            boundingRectangle,
+            viewportLoading.getCamera());
 
         Timer.schedule(new Timer.Task() {
             @Override
@@ -130,6 +135,8 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 
         stage.act();
         stage.draw();
+
+        boundingRectRenderer.render();
 	}
 
 	@Override

@@ -24,9 +24,6 @@ public class AnimatedCharacter extends Group{
         bodyPlusFace.setName("bodyPlusFace");
 
         this.addActor(bodyPlusFace);
-
-        setWidth(animatedBody.getWidth());
-        setHeight(animatedBody.getHeight());
     }
 
     public String getCharacterName() {
@@ -50,8 +47,8 @@ public class AnimatedCharacter extends Group{
         boundingRectangle.set(
             getX(),
             getY(),
-            getWidth(),
-            getHeight()
+            animatedBody.getWidth(),
+            animatedBody.getHeight()
         );
         return boundingRectangle;
     }

@@ -24,4 +24,20 @@ public class AnimationParser {
         }
         return sprites;
     }
+
+    public int maxWidth(String name, String animName, TextureAtlas atlas) {
+        int maxWidth = 0;
+        for (TextureAtlas.AtlasRegion atlasRegion : atlas.getRegions()) {
+            maxWidth = Math.max(maxWidth, atlasRegion.originalWidth);
+        }
+        return maxWidth;
+    }
+    public int maxHeight(String name, String animName, TextureAtlas atlas) {
+        int maxHeight = 0;
+        for (TextureAtlas.AtlasRegion atlasRegion : atlas.getRegions()) {
+            maxHeight = Math.max(maxHeight, atlasRegion.originalHeight);
+        }
+        return maxHeight;
+    }
+
 }

@@ -40,6 +40,11 @@ public class AnimatedBody extends Actor {
         walkAnimsMap.put(WalkingDirection.DOWN.getType(), heroWalkDownRestAnimation);
         currentWalkAnimation = heroWalkDownRestAnimation;
 
+        int width = animationParser.maxWidth(characterName, "lipsyncdown", characterAtlas);
+        int height = animationParser.maxHeight(characterName, "lipsyncdown", characterAtlas);
+        this.setWidth(width);
+        this.setHeight(height);
+
         this.setName("body");
     }
 
