@@ -63,10 +63,10 @@ public class LipSyncAnimationsComponentImpl extends Actor implements LipSyncAnim
                 lipsyncAnimationLookup.put(region.name, lipsyncAnimation);
             }
 
-            String restingLipsyncCueue = String.format("%s-lipsync-down-%s", characterName, "X");
+            String restingLipsyncCueue = characterName + "-lipsync-down-" +"X";
             Animation lipsyncRestCueueAnimation = lipsyncAnimationLookup.get(restingLipsyncCueue);
             if(lipsyncRestCueueAnimation == null){
-                throw new GdxRuntimeException(String.format("Lipsync animation for character %s is not present", characterName));
+                throw new GdxRuntimeException("Lipsync animation for character" +  characterName + " is not present");
             }
             this.currentLipsyncSprite = new AnimatedSprite(lipsyncRestCueueAnimation);
             hasLipsyncAnimation = true;
@@ -92,9 +92,7 @@ public class LipSyncAnimationsComponentImpl extends Actor implements LipSyncAnim
     @Override
     public void updateLipsyncSprite(String currentCueValueIndex) {
         if(hasLipsyncAnimation){
-            String lipsyncRegionName = String.format("%s-lipsync-%s-%s", characterName,
-                WalkingDirection.DOWN.getType(),
-                    currentCueValueIndex);
+            String lipsyncRegionName = characterName + "-lipsync-" + WalkingDirection.DOWN.getType() + "-" + currentCueValueIndex;
             setActiveAnimationName(lipsyncRegionName);
         }
     }
