@@ -30,6 +30,18 @@
     "column": 1
   },
   {
+    "name": "georgebush",
+    "sentence": "Fool me once, shame on you; fool me twice, shame on me",
+    "row": 2,
+    "column": 2
+  },
+  {
+    "name": "kimjungun",
+    "sentence": "Fool me once, shame on you; fool me twice, shame on me",
+    "row": 2,
+    "column": 3
+  },
+  {
     "name": "alberteinstein",
     "sentence": "The definition of a fool is someone who does the same thing over and over again, expecting different results",
     "row": 1,

@@ -12,49 +12,49 @@ alberteinstein-lipsync-down-A
   index: -1
 alberteinstein-lipsync-down-B
   rotate: false
-  xy: 30, 1
+  xy: 1, 33
   size: 27, 30
   orig: 60, 147
   offset: 14, 117
   index: -1
 alberteinstein-lipsync-down-C
   rotate: false
-  xy: 59, 1
+  xy: 1, 65
   size: 27, 30
   orig: 60, 147
   offset: 14, 117
   index: -1
 alberteinstein-lipsync-down-D
   rotate: false
-  xy: 1, 33
+  xy: 30, 1
   size: 27, 30
   orig: 60, 147
   offset: 14, 117
   index: -1
 alberteinstein-lipsync-down-E
   rotate: false
-  xy: 30, 33
+  xy: 59, 1
   size: 27, 30
   orig: 60, 147
   offset: 14, 117
   index: -1
 alberteinstein-lipsync-down-F
   rotate: false
-  xy: 59, 33
+  xy: 30, 33
   size: 27, 30
   orig: 60, 147
   offset: 14, 117
   index: -1
 alberteinstein-lipsync-down-G
   rotate: false
-  xy: 1, 65
+  xy: 30, 65
   size: 27, 30
   orig: 60, 147
   offset: 14, 117
   index: -1
 alberteinstein-lipsync-down-H
   rotate: false
-  xy: 30, 65
+  xy: 59, 33
   size: 27, 30
   orig: 60, 147
   offset: 14, 117
@@ -62,7 +62,7 @@ alberteinstein-lipsync-down-H
 alberteinstein-lipsync-down-X
   rotate: false
   xy: 59, 65
-  size: 3, 3
+  size: 27, 30
   orig: 60, 147
-  offset: 0, 144
+  offset: 14, 117
   index: -1

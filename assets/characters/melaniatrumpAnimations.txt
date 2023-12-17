@@ -1,12 +1,12 @@
 melaniatrumpAnimations.png
-size: 129, 129
+size: 147, 147
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 melaniatrump-lipsyncdown-1
   rotate: false
   xy: 1, 1
-  size: 40, 127
+  size: 60, 145
   orig: 60, 145
-  offset: 8, 1
+  offset: 0, 0
   index: -1
