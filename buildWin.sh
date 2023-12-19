@@ -6,10 +6,10 @@ HOME_DIR=$HOME
 # Define platform-specific variables
 JDK_FOLDER="jdk_windows64_Temurin8"
 JDK_ARCHIVE="OpenJDK8U-jdk_x64_windows_hotspot_8u382b05.zip"
-ICON_FILE="icons/icon.ico"
+ICON_FILE="lwjgl3/icons/icon.ico"
 
 # Run Gradle tasks
-./gradlew clean desktop:dist
+./gradlew clean lwjgl3:distZip
 
 # Set output directory
 OUTPUT_NAME="$HOME_DIR/Development/GameDeployableDevelopment/shutthewackup_windows64"
@@ -22,11 +22,11 @@ java -jar "$HOME_DIR/Development/Tooling/packr/packr-all-4.0.0.jar" \
      --platform windows64 \
      --jdk "$HOME_DIR/Development/Tooling/$JDK_FOLDER/$JDK_ARCHIVE"  \
      --executable shutthewackup \
-     --classpath "$PWD/desktop/build/lib/desktop-1.0.jar" \
-     --removelibs "$PWD/desktop/build/lib/desktop-1.0.jar" \
-     --mainclass com.franzzle.cgi.topotablet.desktop.DesktopLauncher \
+     --classpath "$PWD/lwjgl3/build/lib/shut-the-wack-up-1.0.1.jar" \
+     --removelibs "$PWD/lwjgl3/build/lib/shut-the-wack-up-1.0.1.jar" \
+     --mainclass com.pimpedpixel.games.ShutTheWackUpGame \
      --vmargs Xmx1G \
-     --resources "$PWD/core/assets/." \
+     --resources "$PWD/assets/." \
      --minimizejre soft \
      --icon "$ICON_FILE" \
      --output "$OUTPUT_NAME"

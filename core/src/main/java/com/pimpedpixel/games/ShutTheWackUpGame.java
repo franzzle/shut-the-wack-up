@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -31,9 +30,6 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
 	private Map<String, AnimatedCharacter> animatedCharactersMap;
 	private Stage stage;
     private GameInput gameInput;
-
-    private BoundingRectRenderer boundingRectRenderer;
-    private BoundingRectRenderer crosshairRectRenderer;
 
 	@Override
 	public void create () {
@@ -110,15 +106,6 @@ public class ShutTheWackUpGame extends ApplicationAdapter {
         Gdx.input.setInputProcessor(this.gameInput);
 	}
 
-    private SpawnPos spawnCharacter() {
-        int row = MathUtils.random(1, 3); // 0, 1, or 2 for the three rows
-        int col = MathUtils.random(1, row == 2 ? 3 : 4);
-        SpawnPos spawnPos = new SpawnPos();
-        spawnPos.row = row;
-        spawnPos.column = col;
-        spawnPos.numberOfColumns = row == 2 ? 3 : 4;
-        return spawnPos;
-    }
 
 	@Override
 	public void render () {
